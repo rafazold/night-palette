@@ -6,9 +6,14 @@ module.exports = {
       colors: {
         'card-gray': '#191919',
       },
+      spacing: {
+        '1/10': '10%',
+        40: '31.25rem'
+      },
       boxShadow: {
         main: '0 3px 20px 0 rgba(0, 0, 0, 0.45)',
       },
+    
     },
   },
   variants: {

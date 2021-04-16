@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Card from './Card.jsx';
-import data from '../../assets/_default-palettes.json';
+import data from '../../images/default-palettes.json';
 
 const CardList = ({ palettes = data, className, ...props }) => {
   const [selected, setSelected] = useState('');
