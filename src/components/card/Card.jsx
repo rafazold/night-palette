@@ -1,6 +1,6 @@
 import React from 'react';
 import Palette from '../shared/Palette.jsx';
-import Star from '../../images/icons/star.svg';
+import Star from '../../assets/images/icons/star.svg';
 
 const Card = ({ palette, id, expanded, shrink, className, ...props }) => {
   return (
