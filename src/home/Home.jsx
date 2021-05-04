@@ -1,5 +1,5 @@
 import React from 'react';
-import CardList from '../components/card/CardList.jsx';
+import CardFeed from '../components/card/CardFeed.jsx';
 
 const Home = () => (
   <div className="comp-home bg-black text-white">
@@ -11,7 +11,7 @@ const Home = () => (
         Night Palette is a free inspirational color palette tool made for dark
         mode design
       </h2>
-      <CardList />
+      <CardFeed />
     </div>
   </div>
 );
