@@ -19,11 +19,9 @@ module.exports = {
       {
         test: /\.jsx?$/,
         loader: 'babel-loader',
-        include: [context],
+        include: context,
         options: {
-          presets: [
-            '@babel/preset-react',
-          ],
+          presets: ['@babel/preset-react'],
           plugins: [
             [
               '@babel/transform-runtime',
