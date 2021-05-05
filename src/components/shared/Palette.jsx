@@ -1,9 +1,12 @@
 import React from 'react';
 
-const Palette = (
-  { colors, colorOnClick = () => undefined, activeColor, className },
+const Palette = ({
+  colors,
+  colorOnClick = () => undefined,
+  activeColor,
+  className,
   ...props
-) => {
+}) => {
   return (
     <div
       className={[
@@ -19,10 +22,10 @@ const Palette = (
       {...props}
     >
       {colors &&
-        colors.map(({ color, hex, id }, i) => (
+        colors.map(({ color, hex }, i) => (
           <div
-            key={id + i}
-            style={{ backgroundColor: color }}
+            key={hex + i}
+            style={{ backgroundColor: hex }}
             onClick={() => colorOnClick(i)}
             className={[
               'w-full',

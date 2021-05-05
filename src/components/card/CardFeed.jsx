@@ -5,11 +5,10 @@ import context from '../../context/context.js';
 
 const CardFeed = ({ className, ...props }) => {
   const [rows, setRows] = useState([]);
-  const [ownedRows, setOwnedRows] = useState([]);
+  const [customRows, setCustomRows] = useState([]);
   const { defaultPalettes, customPalettes } = useContext(context);
   useEffect(() => {
-    console.log();
-    setOwnedRows(groupArray(Object.values(customPalettes), 5));
+    setCustomRows(groupArray(customPalettes, 5));
     setRows(groupArray(defaultPalettes, 5));
   }, [defaultPalettes]);
 
@@ -20,8 +19,8 @@ const CardFeed = ({ className, ...props }) => {
         .join(' ')}
       {...props}
     >
-      {ownedRows && <CardList list={ownedRows} />}
-      {rows && <CardList list={rows} />}
+      {customRows && <CardList list={customRows} type="C" />}
+      {rows && <CardList list={rows} type="D" />}
     </div>
   );
 };
