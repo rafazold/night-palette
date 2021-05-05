@@ -1,203 +1,144 @@
 [
-  [
-    {"color": "blue", "hex": "blue", "id": "blue" },
-    { "color": "red", "hex": "red", "id": "red" },
-    { "color": "purple", "hex": "purple", "id": "purple" },
-    { "color": "yellow", "hex": "yellow", "id": "yellow" },
-    { "color": "brown", "hex": "brown", "id": "brown" }
-  ],
-  [
-    { "color": "red", "hex": "red", "id": "red" },
-    { "color": "blue", "hex": "blue", "id": "blue" },
-    { "color": "purple", "hex": "purple", "id": "purple" },
-    { "color": "yellow", "hex": "yellow", "id": "yellow" },
-    { "color": "brown", "hex": "brown", "id": "brown" }
-  ],
-  [
-    { "color": "purple", "hex": "purple", "id": "purple" },
-    { "color": "red", "hex": "red", "id": "red" },
-    { "color": "yellow", "hex": "yellow", "id": "yellow" },
-    { "color": "brown", "hex": "brown", "id": "brown" },
-    { "color": "blue", "hex": "blue", "id": "blue" }
-  ],[
-  {"color": "blue", "hex": "blue", "id": "blue" },
-  { "color": "red", "hex": "red", "id": "red" },
-  { "color": "purple", "hex": "purple", "id": "purple" },
-  { "color": "yellow", "hex": "yellow", "id": "yellow" },
-  { "color": "brown", "hex": "brown", "id": "brown" }
-],
-  [
-    { "color": "red", "hex": "red", "id": "red" },
-    { "color": "blue", "hex": "blue", "id": "blue" },
-    { "color": "purple", "hex": "purple", "id": "purple" },
-    { "color": "yellow", "hex": "yellow", "id": "yellow" },
-    { "color": "brown", "hex": "brown", "id": "brown" }
-  ],
-  [
-    { "color": "purple", "hex": "purple", "id": "purple" },
-    { "color": "red", "hex": "red", "id": "red" },
-    { "color": "yellow", "hex": "yellow", "id": "yellow" },
-    { "color": "brown", "hex": "brown", "id": "brown" },
-    { "color": "blue", "hex": "blue", "id": "blue" }
-  ],[
-  {"color": "blue", "hex": "blue", "id": "blue" },
-  { "color": "red", "hex": "red", "id": "red" },
-  { "color": "purple", "hex": "purple", "id": "purple" },
-  { "color": "yellow", "hex": "yellow", "id": "yellow" },
-  { "color": "brown", "hex": "brown", "id": "brown" }
-],
-  [
-    { "color": "red", "hex": "red", "id": "red" },
-    { "color": "blue", "hex": "blue", "id": "blue" },
-    { "color": "purple", "hex": "purple", "id": "purple" },
-    { "color": "yellow", "hex": "yellow", "id": "yellow" },
-    { "color": "brown", "hex": "brown", "id": "brown" }
-  ],
-  [
-    { "color": "purple", "hex": "purple", "id": "purple" },
-    { "color": "red", "hex": "red", "id": "red" },
-    { "color": "yellow", "hex": "yellow", "id": "yellow" },
-    { "color": "brown", "hex": "brown", "id": "brown" },
-    { "color": "blue", "hex": "blue", "id": "blue" }
-  ],[
-  {"color": "blue", "hex": "blue", "id": "blue" },
-  { "color": "red", "hex": "red", "id": "red" },
-  { "color": "purple", "hex": "purple", "id": "purple" },
-  { "color": "yellow", "hex": "yellow", "id": "yellow" },
-  { "color": "brown", "hex": "brown", "id": "brown" }
-],
-  [
-    { "color": "red", "hex": "red", "id": "red" },
-    { "color": "blue", "hex": "blue", "id": "blue" },
-    { "color": "purple", "hex": "purple", "id": "purple" },
-    { "color": "yellow", "hex": "yellow", "id": "yellow" },
-    { "color": "brown", "hex": "brown", "id": "brown" }
-  ],
-  [
-    { "color": "purple", "hex": "purple", "id": "purple" },
-    { "color": "red", "hex": "red", "id": "red" },
-    { "color": "yellow", "hex": "yellow", "id": "yellow" },
-    { "color": "brown", "hex": "brown", "id": "brown" },
-    { "color": "blue", "hex": "blue", "id": "blue" }
-  ],[
-  {"color": "blue", "hex": "blue", "id": "blue" },
-  { "color": "red", "hex": "red", "id": "red" },
-  { "color": "purple", "hex": "purple", "id": "purple" },
-  { "color": "yellow", "hex": "yellow", "id": "yellow" },
-  { "color": "brown", "hex": "brown", "id": "brown" }
-],
-  [
-    { "color": "red", "hex": "red", "id": "red" },
-    { "color": "blue", "hex": "blue", "id": "blue" },
-    { "color": "purple", "hex": "purple", "id": "purple" },
-    { "color": "yellow", "hex": "yellow", "id": "yellow" },
-    { "color": "brown", "hex": "brown", "id": "brown" }
-  ],
-  [
-    { "color": "purple", "hex": "purple", "id": "purple" },
-    { "color": "red", "hex": "red", "id": "red" },
-    { "color": "yellow", "hex": "yellow", "id": "yellow" },
-    { "color": "brown", "hex": "brown", "id": "brown" },
-    { "color": "blue", "hex": "blue", "id": "blue" }
-  ],[
-  {"color": "blue", "hex": "blue", "id": "blue" },
-  { "color": "red", "hex": "red", "id": "red" },
-  { "color": "purple", "hex": "purple", "id": "purple" },
-  { "color": "yellow", "hex": "yellow", "id": "yellow" },
-  { "color": "brown", "hex": "brown", "id": "brown" }
-],
-  [
-    { "color": "red", "hex": "red", "id": "red" },
-    { "color": "blue", "hex": "blue", "id": "blue" },
-    { "color": "purple", "hex": "purple", "id": "purple" },
-    { "color": "yellow", "hex": "yellow", "id": "yellow" },
-    { "color": "brown", "hex": "brown", "id": "brown" }
-  ],
-  [
-    { "color": "purple", "hex": "purple", "id": "purple" },
-    { "color": "red", "hex": "red", "id": "red" },
-    { "color": "yellow", "hex": "yellow", "id": "yellow" },
-    { "color": "brown", "hex": "brown", "id": "brown" },
-    { "color": "blue", "hex": "blue", "id": "blue" }
-  ],[
-  {"color": "blue", "hex": "blue", "id": "blue" },
-  { "color": "red", "hex": "red", "id": "red" },
-  { "color": "purple", "hex": "purple", "id": "purple" },
-  { "color": "yellow", "hex": "yellow", "id": "yellow" },
-  { "color": "brown", "hex": "brown", "id": "brown" }
-],
-  [
-    { "color": "red", "hex": "red", "id": "red" },
-    { "color": "blue", "hex": "blue", "id": "blue" },
-    { "color": "purple", "hex": "purple", "id": "purple" },
-    { "color": "yellow", "hex": "yellow", "id": "yellow" },
-    { "color": "brown", "hex": "brown", "id": "brown" }
-  ],
-  [
-    { "color": "purple", "hex": "purple", "id": "purple" },
-    { "color": "red", "hex": "red", "id": "red" },
-    { "color": "yellow", "hex": "yellow", "id": "yellow" },
-    { "color": "brown", "hex": "brown", "id": "brown" },
-    { "color": "blue", "hex": "blue", "id": "blue" }
-  ],[
-  {"color": "blue", "hex": "blue", "id": "blue" },
-  { "color": "red", "hex": "red", "id": "red" },
-  { "color": "purple", "hex": "purple", "id": "purple" },
-  { "color": "yellow", "hex": "yellow", "id": "yellow" },
-  { "color": "brown", "hex": "brown", "id": "brown" }
-],
-  [
-    { "color": "red", "hex": "red", "id": "red" },
-    { "color": "blue", "hex": "blue", "id": "blue" },
-    { "color": "purple", "hex": "purple", "id": "purple" },
-    { "color": "yellow", "hex": "yellow", "id": "yellow" },
-    { "color": "brown", "hex": "brown", "id": "brown" }
-  ],
-  [
-    { "color": "purple", "hex": "purple", "id": "purple" },
-    { "color": "red", "hex": "red", "id": "red" },
-    { "color": "yellow", "hex": "yellow", "id": "yellow" },
-    { "color": "brown", "hex": "brown", "id": "brown" },
-    { "color": "blue", "hex": "blue", "id": "blue" }
-  ],[
-  {"color": "blue", "hex": "blue", "id": "blue" },
-  { "color": "red", "hex": "red", "id": "red" },
-  { "color": "purple", "hex": "purple", "id": "purple" },
-  { "color": "yellow", "hex": "yellow", "id": "yellow" },
-  { "color": "brown", "hex": "brown", "id": "brown" }
-],
-  [
-    { "color": "red", "hex": "red", "id": "red" },
-    { "color": "blue", "hex": "blue", "id": "blue" },
-    { "color": "purple", "hex": "purple", "id": "purple" },
-    { "color": "yellow", "hex": "yellow", "id": "yellow" },
-    { "color": "brown", "hex": "brown", "id": "brown" }
-  ],
-  [
-    { "color": "purple", "hex": "purple", "id": "purple" },
-    { "color": "red", "hex": "red", "id": "red" },
-    { "color": "yellow", "hex": "yellow", "id": "yellow" },
-    { "color": "brown", "hex": "brown", "id": "brown" },
-    { "color": "blue", "hex": "blue", "id": "blue" }
-  ],[
-  {"color": "blue", "hex": "blue", "id": "blue" },
-  { "color": "red", "hex": "red", "id": "red" },
-  { "color": "purple", "hex": "purple", "id": "purple" },
-  { "color": "yellow", "hex": "yellow", "id": "yellow" },
-  { "color": "brown", "hex": "brown", "id": "brown" }
-],
-  [
-    { "color": "red", "hex": "red", "id": "red" },
-    { "color": "blue", "hex": "blue", "id": "blue" },
-    { "color": "purple", "hex": "purple", "id": "purple" },
-    { "color": "yellow", "hex": "yellow", "id": "yellow" },
-    { "color": "brown", "hex": "brown", "id": "brown" }
-  ],
-  [
-    { "color": "purple", "hex": "purple", "id": "purple" },
-    { "color": "red", "hex": "red", "id": "red" },
-    { "color": "yellow", "hex": "yellow", "id": "yellow" },
-    { "color": "brown", "hex": "brown", "id": "brown" },
-    { "color": "blue", "hex": "blue", "id": "blue" }
+{
+  "id": "#e3e3e3#bfbfbf#919191#6f6f6f#262626",
+  "colors": [
+    {
+      "color": "#e3e3e3",
+      "hex": "#e3e3e3"
+    },
+    {
+      "color": "#bfbfbf",
+      "hex": "#bfbfbf"
+    },
+    {
+      "color": "#919191",
+      "hex": "#919191"
+    },
+    {
+      "color": "#6f6f6f",
+      "hex": "#6f6f6f"
+    },
+    {
+      "color": "#262626",
+      "hex": "#262626"
+    }
   ]
+},
+  {
+    "id": "#e3e3e3#bfbfbf#919191#6f6f6f#2a1313",
+    "colors": [
+      {
+        "color": "#e3e3e3",
+        "hex": "#e3e3e3"
+      },
+      {
+        "color": "#bfbfbf",
+        "hex": "#bfbfbf"
+      },
+      {
+        "color": "#919191",
+        "hex": "#919191"
+      },
+      {
+        "color": "#6f6f6f",
+        "hex": "#6f6f6f"
+      },
+      {
+        "color": "#2a1313",
+        "hex": "#2a1313"
+      }
+    ]
+  },
+  {"id":"#e3e3e3#bfbfbf#919191#06090c#060101",
+    "colors": [
+    {
+      "color": "#e3e3e3",
+      "hex": "#e3e3e3"
+    },
+    {
+      "color": "#bfbfbf",
+      "hex": "#bfbfbf"
+    },
+    {
+      "color": "#919191",
+      "hex": "#919191"
+    },
+    {
+      "color": "#06090c",
+      "hex": "#06090c"
+    },
+    {
+      "color": "#060101",
+      "hex": "#060101"
+    }
+  ]},
+  {"id":"#e3e3e3#bfbfbf#919191#6f6f6f#3b1111",
+    "colors": [
+    {
+      "color": "#e3e3e3",
+      "hex": "#e3e3e3"
+    },
+    {
+      "color": "#bfbfbf",
+      "hex": "#bfbfbf"
+    },
+    {
+      "color": "#919191",
+      "hex": "#919191"
+    },
+    {
+      "color": "#6f6f6f",
+      "hex": "#6f6f6f"
+    },
+    {
+      "color": "#3b1111",
+      "hex": "#3b1111"
+    }
+  ]},
+  {"id":"#bc4f4f#6b2929#0e0c0c#6f6f6f#262626",
+    "colors": [
+    {
+      "color": "#bc4f4f",
+      "hex": "#bc4f4f"
+    },
+    {
+      "color": "#6b2929",
+      "hex": "#6b2929"
+    },
+    {
+      "color": "#0e0c0c",
+      "hex": "#0e0c0c"
+    },
+    {
+      "color": "#6f6f6f",
+      "hex": "#6f6f6f"
+    },
+    {
+      "color": "#262626",
+      "hex": "#262626"
+    }
+  ]},
+  {"id":"#e3e3e3#4d4e66#0c0303#03040c#262626",
+    "colors": [
+    {
+      "color": "#e3e3e3",
+      "hex": "#e3e3e3"
+    },
+    {
+      "color": "#4d4e66",
+      "hex": "#4d4e66"
+    },
+    {
+      "color": "#0c0303",
+      "hex": "#0c0303"
+    },
+    {
+      "color": "#03040c",
+      "hex": "#03040c"
+    },
+    {
+      "color": "#262626",
+      "hex": "#262626"
+    }
+  ]}
 ]
