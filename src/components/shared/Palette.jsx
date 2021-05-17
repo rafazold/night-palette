@@ -35,6 +35,7 @@ const Palette = ({
               i === 3 && 'flex-grow',
               i === 4 && 'h-1/10',
               activeColor === i && 'border border-blue-600',
+              'hover:border border-button-blue',
             ]
               .filter(Boolean)
               .join(' ')}

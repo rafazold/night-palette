@@ -5,6 +5,7 @@ module.exports = {
       'src/components/**/*.js',
       'src/index.js',
     ],
+    // enabled: true,
     whitelist: ['font-primary'],
   },
   darkMode: false, // or 'media' or 'class'
@@ -13,6 +14,9 @@ module.exports = {
       colors: {
         'card-gray': '#191919',
         'button-gray': '#262626',
+        'light-gray': '#efefef',
+        'button-blue': '#0097c4',
+        'button-green': '#15ffb7',
       },
       spacing: {
         '1/10': '10%',
@@ -27,7 +31,9 @@ module.exports = {
     },
   },
   variants: {
-    extend: {},
+    extend: {
+      borderWidth: ['hover'],
+    },
   },
   plugins: [],
 };
