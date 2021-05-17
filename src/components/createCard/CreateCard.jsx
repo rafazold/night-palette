@@ -4,6 +4,8 @@ import ColorPicker from './ColorPicker.jsx';
 import useOnClickAway from '../../hooks/clickAway.jsx';
 import context from '../../context/context.js';
 import { makePaletteId } from '../../utils.js';
+import { useHistory, Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 const CreateCard = ({ className, ...props }) => {
   const initialColors = [
@@ -13,6 +15,7 @@ const CreateCard = ({ className, ...props }) => {
     { color: '#6f6f6f', hex: '#6f6f6f' },
     { color: '#262626', hex: '#262626' },
   ];
+  const history = useHistory();
   const [colors, setColors] = useState(initialColors);
   const [currentColor, setCurrentColor] = useState({ color: '', index: '' });
   const [edit, setEdit] = useState(false);
@@ -33,10 +36,21 @@ const CreateCard = ({ className, ...props }) => {
     setCurrentColor(current);
     setEdit(true);
   };
-  const { addCustomPalette } = useContext(context);
+  const { addCustomPalette, customPalettes } = useContext(context);
   const addPalette = () => {
     const paletteId = makePaletteId(colors);
-    addCustomPalette({ paletteId, colors });
+    if (customPalettes.some((item) => item.id === paletteId)) {
+      toast.info(
+        <Link to="/">palette already exists, click to search for it...</Link>,
+        {
+          position: toast.POSITION.BOTTOM_RIGHT,
+        }
+      );
+      // alert('hello');
+    } else {
+      addCustomPalette({ paletteId, colors });
+      history.push('/');
+    }
   };
   const ref = useRef();
   useOnClickAway(ref, () => setEdit(false));
@@ -48,7 +62,6 @@ const CreateCard = ({ className, ...props }) => {
         .join(' ')}
       {...props}
     >
-      CREATE CARD
       <div
         ref={ref}
         className="h-full w-3/5 mx-auto py-16 px-10 max-w-3xl relative"
@@ -70,7 +83,7 @@ const CreateCard = ({ className, ...props }) => {
       </div>
       <button
         onClick={addPalette}
-        className="bg-button-gray py-1 px-8 rounded-lg text-gray-600 hover:text-gray-400 border border-button-gray hover:border-gray-400"
+        className="bg-button-gray py-1 px-8 rounded-lg text-gray-600 border border-button-gray bg-gradient-to-r hover:from-button-green hover:to-button-blue hover:text-black"
       >
         Submit
       </button>
