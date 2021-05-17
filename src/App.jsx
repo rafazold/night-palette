@@ -4,6 +4,8 @@ import Header from './components/Header.jsx';
 import Context from './context/context.js';
 import Store from './context/store.js';
 import routes from './routes.js';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const App = () => {
   const store = Store();
@@ -11,6 +13,7 @@ const App = () => {
     <Context.Provider value={store}>
       <Router>
         <div className="w-screen mt-16 h-screen bg-black">
+          <ToastContainer />
           <Header />
           <Suspense
             fallback={<div className="font-bold text-xl p-4">Loading...</div>}
