@@ -15,7 +15,17 @@ const Card = ({ palette, id, expanded, shrink, className, ...props }) => {
       {...props}
     >
       <Palette colors={palette} className="h-56" />
-      <div className="flex justify-between h-16 items-center">
+      <div
+        className={[
+          'flex',
+          'justify-between',
+          'h-16',
+          'items-center',
+          shrink && 'hidden',
+        ]
+          .filter(Boolean)
+          .join(' ')}
+      >
         <div className="text-base flex items-center px-1.5 py-0.5 bg-black">
           <Star className="w-3 h-3 mr-3" />
           <span>147</span>

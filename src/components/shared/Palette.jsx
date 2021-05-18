@@ -29,11 +29,12 @@ const Palette = ({
             onClick={() => colorOnClick(i)}
             className={[
               'w-full',
-              i === 0 && 'h-1/3',
+              i === 0 && 'h-1/3 rounded-t-md',
               i === 1 && 'h-1/4',
               i === 2 && 'h-1/5',
               i === 3 && 'flex-grow',
               i === 4 && 'h-1/10',
+              i === colors.length - 1 && 'rounded-b-md',
               activeColor === i && 'border border-blue-600',
               'hover:border border-button-blue',
             ]

@@ -9,7 +9,7 @@ const publicPath = process.env.PUBLIC_PATH || '/';
 const context = resolve(__dirname, 'src');
 
 module.exports = {
-  // entry: ['core-js/stable', 'regenerator-runtime/runtime', './src'],
+  entry: ['core-js/stable', 'regenerator-runtime/runtime', './src'],
   output: {
     publicPath,
     path: resolve(__dirname, 'dist'),
