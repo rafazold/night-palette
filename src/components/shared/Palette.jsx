@@ -1,10 +1,13 @@
 import React from 'react';
+import ReactTooltip from 'react-tooltip';
 
 const Palette = ({
   colors,
   colorOnClick = () => undefined,
   activeColor,
   className,
+  cardId,
+  tooltip,
   ...props
 }) => {
   return (
@@ -25,10 +28,13 @@ const Palette = ({
         colors.map(({ color, hex }, i) => (
           <div
             key={hex + i}
+            data-tip=""
+            data-for={cardId + hex + i}
             style={{ backgroundColor: hex }}
             onClick={() => colorOnClick(i)}
             className={[
               'w-full',
+              'flex justify-center',
               i === 0 && 'h-1/3 rounded-t-md',
               i === 1 && 'h-1/4',
               i === 2 && 'h-1/5',
@@ -41,7 +47,11 @@ const Palette = ({
               .filter(Boolean)
               .join(' ')}
           >
-            {hex}
+            {tooltip ? (
+              <ReactTooltip id={cardId + hex + i}>{hex}</ReactTooltip>
+            ) : (
+              <span className="my-auto">{hex}</span>
+            )}
           </div>
         ))}
     </div>
