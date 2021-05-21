@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import Card from './Card.jsx';
-import context from '../../context/context.js';
+import context from '../../../context/context.js';
 
 const CardList = ({ list = [], type = 'D' }) => {
   const { selectedCard, setSelectedCard } = useContext(context);
@@ -20,6 +20,7 @@ const CardList = ({ list = [], type = 'D' }) => {
                   onClick={() => selectCard(id, index, type)}
                   palette={colors}
                   key={id}
+                  id={id}
                   expanded={selectedCard['key'] === id}
                   shrink={
                     selectedCard['key'] !== id &&

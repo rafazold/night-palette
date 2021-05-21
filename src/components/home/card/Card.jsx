@@ -1,8 +1,12 @@
 import React from 'react';
-import Palette from '../shared/Palette.jsx';
-import Star from '../../assets/images/icons/star.svg';
+import Palette from '../../shared/Palette.jsx';
+import Star from '../../../assets/images/icons/star.svg';
 
 const Card = ({ palette, id, expanded, shrink, className, ...props }) => {
+  const handleLike = (e) => {
+    e.stopPropagation();
+    console.log('liked');
+  };
   return (
     <div
       className={[
@@ -14,7 +18,7 @@ const Card = ({ palette, id, expanded, shrink, className, ...props }) => {
         .join(' ')}
       {...props}
     >
-      <Palette colors={palette} className="h-56" />
+      <Palette colors={palette} cardId={id} tooltip className="h-56" />
       <div
         className={[
           'flex',
@@ -28,7 +32,7 @@ const Card = ({ palette, id, expanded, shrink, className, ...props }) => {
       >
         <div className="text-base flex items-center px-1.5 py-0.5 bg-black">
           <Star className="w-3 h-3 mr-3" />
-          <span>147</span>
+          <span onClick={handleLike}>147</span>
         </div>
         <div className="text-sm text-gray-600">Today</div>
       </div>
