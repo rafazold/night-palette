@@ -1,9 +1,9 @@
 import React, { useState, useRef, useContext } from 'react';
-import Palette from '../shared/Palette.jsx';
+import Palette from '../../shared/Palette.jsx';
 import ColorPicker from './ColorPicker.jsx';
-import useOnClickAway from '../../hooks/clickAway.jsx';
-import context from '../../context/context.js';
-import { makePaletteId } from '../../utils.js';
+import useOnClickAway from '../../../hooks/clickAway.jsx';
+import context from '../../../context/context.js';
+import { makePaletteId } from '../../../utils.js';
 import { useHistory, Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
@@ -19,6 +19,7 @@ const CreateCard = ({ className, ...props }) => {
   const [colors, setColors] = useState(initialColors);
   const [currentColor, setCurrentColor] = useState({ color: '', index: '' });
   const [edit, setEdit] = useState(false);
+  const [buttonDisabled, setButtonDisabled] = useState(true);
   const handleChangeColor = (e) => {
     setEdit(true);
     let newProfile = [...colors];
@@ -35,6 +36,7 @@ const CreateCard = ({ className, ...props }) => {
     };
     setCurrentColor(current);
     setEdit(true);
+    buttonDisabled && setButtonDisabled(false);
   };
   const { addCustomPalette, customPalettes } = useContext(context);
   const addPalette = () => {
@@ -83,7 +85,22 @@ const CreateCard = ({ className, ...props }) => {
       </div>
       <button
         onClick={addPalette}
-        className="bg-button-gray py-1 px-8 rounded-lg text-gray-600 border border-button-gray bg-gradient-to-r hover:from-button-green hover:to-button-blue hover:text-black"
+        className={[
+          'disabled:bg-button-gray',
+          'py-1',
+          'px-8',
+          'rounded-lg',
+          'disabled:text-gray-600',
+          'border',
+          'disabled:border-button-gray',
+          'bg-gradient-to-r',
+          !buttonDisabled && 'from-button-green',
+          'to-button-blue',
+          'text-black',
+        ]
+          .filter(Boolean)
+          .join(' ')}
+        disabled={buttonDisabled}
       >
         Submit
       </button>

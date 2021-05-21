@@ -1,5 +1,5 @@
 import React from 'react';
-import CreateCard from '../components/createCard/CreateCard.jsx';
+import CreateCard from './createCard/CreateCard.jsx';
 
 const Create = () => {
   return (

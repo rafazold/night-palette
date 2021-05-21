@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { groupArray } from '../../utils.js';
+import { groupArray } from '../../../utils.js';
 import CardList from './CardList.jsx';
-import context from '../../context/context.js';
+import context from '../../../context/context.js';
 
 const CardFeed = ({ className, ...props }) => {
   const [rows, setRows] = useState([]);
