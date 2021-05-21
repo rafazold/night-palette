@@ -33,6 +33,10 @@ module.exports = {
   variants: {
     extend: {
       borderWidth: ['hover'],
+      backgroundColor: ['disabled'],
+      borderColor: ['disabled'],
+      textColor: ['disabled'],
+      gradientColorStops: ['disabled'],
     },
   },
   plugins: [],
