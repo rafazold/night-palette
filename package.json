@@ -18,8 +18,8 @@
     "build-css": "tailwind build node_modules/tailwindcss/tailwind.css -o dist/style.css",
     "predev": "yarn build-css",
     "dev": "webpack serve --mode development",
-    "prebuild": "yarn build-css",
-    "build": "webpack --mode production"
+    "prebuild": "NODE_ENV=production yarn build-css",
+    "build": "webpack --mode production "
   },
   "devDependencies": {
     "@babel/core": "^7.13.14",
