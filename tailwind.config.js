@@ -1,10 +1,6 @@
 module.exports = {
   purge: {
-    content: [
-      'src/components/**/*.jsx',
-      'src/components/**/*.js',
-      'src/index.js',
-    ],
+    content: ['./src/**/**/*.jsx', './src/**/**/*.js', './src/index.js'],
     // enabled: true,
     whitelist: ['font-primary'],
   },
