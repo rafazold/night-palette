@@ -11,21 +11,21 @@ const Card = ({ palette, id, expanded, shrink, className, ...props }) => {
     <div
       className={[
         'mx-4 px-4 pt-3 bg-card-gray shadow-main rounded-md mb-20 cursor-pointer',
-        expanded ? 'w-full' : shrink ? 'w-14' : 'w-60',
+        expanded ? 'lg:w-full' : shrink ? 'lg:w-14' : 'lg:w-60',
         className,
       ]
         .filter(Boolean)
         .join(' ')}
       {...props}
     >
-      <Palette colors={palette} cardId={id} tooltip className="h-56" />
+      <Palette colors={palette} cardId={id} tooltip className="h-72 lg:h-56" />
       <div
         className={[
           'flex',
           'justify-between',
           'h-16',
           'items-center',
-          shrink && 'hidden',
+          shrink && 'lg:hidden',
         ]
           .filter(Boolean)
           .join(' ')}
