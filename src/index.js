@@ -5,7 +5,7 @@ import App from './App.jsx';
 import './css/_fonts.css';
 
 const root = document.createElement('div');
-root.classList.add('font-primary', 'text-base', 'h-screen');
+root.classList.add('font-primary', 'text-base', 'bg-black');
 document.body.appendChild(root);
 
 render(<App />, root);

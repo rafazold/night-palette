@@ -59,14 +59,20 @@ const CreateCard = ({ className, ...props }) => {
 
   return (
     <div
-      className={['comp-create-card', 'text-white h-40', className]
+      className={[
+        'comp-create-card',
+        'text-white h-40',
+        'flex',
+        'flex-col',
+        className,
+      ]
         .filter(Boolean)
         .join(' ')}
       {...props}
     >
       <div
         ref={ref}
-        className="h-full w-3/5 mx-auto py-16 px-10 max-w-3xl relative"
+        className="h-full w-full lg:w-3/5 mx-auto py-16 px-10 max-w-3xl relative"
       >
         <Palette
           className="h-full w-full cursor-pointer"
@@ -97,6 +103,9 @@ const CreateCard = ({ className, ...props }) => {
           !buttonDisabled && 'from-button-green',
           'to-button-blue',
           'text-black',
+          'mb-10',
+          'w-min',
+          'mx-auto',
         ]
           .filter(Boolean)
           .join(' ')}
