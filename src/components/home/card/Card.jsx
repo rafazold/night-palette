@@ -11,7 +11,7 @@ const Card = ({ palette, id, expanded, shrink, className, ...props }) => {
     <div
       className={[
         'mx-4 px-4 pt-3 bg-card-gray shadow-main rounded-md mb-20 cursor-pointer',
-        expanded ? 'lg:w-full' : shrink ? 'lg:w-14' : 'lg:w-60',
+        expanded ? 'lg:w-2/3' : shrink ? 'lg:w-1/5' : 'lg:w-60',
         className,
       ]
         .filter(Boolean)
