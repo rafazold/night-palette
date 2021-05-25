@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactTooltip from 'react-tooltip';
 
 const Palette = ({
   colors,
@@ -43,15 +42,14 @@ const Palette = ({
               i === colors.length - 1 && 'rounded-b-md',
               activeColor === i && 'border border-blue-600',
               'hover:border border-button-blue',
+              'group relative',
             ]
               .filter(Boolean)
               .join(' ')}
           >
-            {tooltip ? (
-              <ReactTooltip id={cardId + hex + i}>{hex}</ReactTooltip>
-            ) : (
-              <span className="my-auto">{hex}</span>
-            )}
+            <div className="my-auto hidden group-hover:block bg-black text-white bg-opacity-60 backdrop-filter p-1.5 rounded-lg absolute bottom-0">
+              {hex}
+            </div>
           </div>
         ))}
     </div>
