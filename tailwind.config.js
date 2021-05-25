@@ -33,6 +33,7 @@ module.exports = {
       borderColor: ['disabled'],
       textColor: ['disabled'],
       gradientColorStops: ['disabled'],
+      display: ['hover', 'group-hover'],
     },
   },
   plugins: [],
