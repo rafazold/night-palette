@@ -6,6 +6,7 @@ import context from '../../../context/context.js';
 import { makePaletteId } from '../../../utils.js';
 import { useHistory, Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import { setPalette } from '../../../api/api';
 
 const CreateCard = ({ className, ...props }) => {
   const initialColors = [
@@ -38,7 +39,7 @@ const CreateCard = ({ className, ...props }) => {
     setEdit(true);
     buttonDisabled && setButtonDisabled(false);
   };
-  const { addCustomPalette, customPalettes } = useContext(context);
+  const { user, addCustomPalette, customPalettes } = useContext(context);
   const addPalette = () => {
     const paletteId = makePaletteId(colors);
     if (customPalettes.some((item) => item.id === paletteId)) {
@@ -48,9 +49,9 @@ const CreateCard = ({ className, ...props }) => {
           position: toast.POSITION.BOTTOM_RIGHT,
         }
       );
-      // alert('hello');
     } else {
       addCustomPalette({ paletteId, colors });
+      setPalette({ id: paletteId, colors: colors, userId: user.uid });
       history.push('/');
     }
   };
