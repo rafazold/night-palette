@@ -1,8 +1,7 @@
 import app from 'firebase/app';
-console.log('aaaa', process.env.STORAGE_BUCKET);
-console.log('bbb', process.env.STORAGE_BUC);
 import 'firebase/auth';
-const config = {
+
+export const firebaseConfig = {
   apiKey: process.env.API_KEY,
   authDomain: process.env.AUTH_DOMAIN,
   databaseURL: process.env.DATABASE_URL,
@@ -11,7 +10,7 @@ const config = {
   messagingSenderId: process.env.MESSAGING_SENDER_ID,
 };
 
-export const firebase = app.initializeApp(config);
+export const firebase = app.initializeApp(firebaseConfig);
 export const googleProvider = app.auth.GoogleAuthProvider.PROVIDER_ID;
 export const emailProvider = app.auth.EmailAuthProvider.PROVIDER_ID;
 // export default Firebase;
