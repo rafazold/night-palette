@@ -22,13 +22,11 @@ const SignIn = () => {
     const unregisterAuthObserver = firebase
       .auth()
       .onAuthStateChanged((user) => {
-        console.log('heeeey', user);
         setUser(user);
         user && history.push('/');
       });
     return () => unregisterAuthObserver(); // Make sure we un-register Firebase observers when the component unmounts.
   }, []);
-
   return (
     <>
       {!user ? (

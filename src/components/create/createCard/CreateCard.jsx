@@ -6,7 +6,7 @@ import context from '../../../context/context.js';
 import { makePaletteId } from '../../../utils.js';
 import { useHistory, Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import { setPalette } from '../../../api/api';
+import { checkAvailable, setPalette } from '../../../api/api';
 
 const CreateCard = ({ className, ...props }) => {
   const initialColors = [
@@ -42,80 +42,88 @@ const CreateCard = ({ className, ...props }) => {
   const { user, addCustomPalette, customPalettes } = useContext(context);
   const addPalette = () => {
     const paletteId = makePaletteId(colors);
-    if (customPalettes.some((item) => item.id === paletteId)) {
-      toast.info(
-        <Link to="/">palette already exists, click to search for it...</Link>,
-        {
-          position: toast.POSITION.BOTTOM_RIGHT,
-        }
-      );
-    } else {
-      addCustomPalette({ paletteId, colors });
-      setPalette({ id: paletteId, colors: colors, userId: user.uid });
-      history.push('/');
-    }
-  };
-  const ref = useRef();
-  useOnClickAway(ref, () => setEdit(false));
+    checkAvailable(paletteId).then((available) => {
+      if (!available) {
+        toast.info(
+          <Link to="/">palette already exists, click to search for it...</Link>,
+          {
+            position: toast.POSITION.BOTTOM_RIGHT,
+          }
+        );
+      } else {
+        // addCustomPalette({ paletteId, colors });
+        setPalette({
+          id: paletteId,
+          colors: colors,
+          userId: user.uid,
+          type: 'custom',
+        }).then(() => {
+          history.push('/');
+        });
+      }
+    });
+    const ref = useRef();
+    useOnClickAway(ref, () => setEdit(false));
 
-  return (
-    <div
-      className={[
-        'comp-create-card',
-        'text-white h-40',
-        'flex',
-        'flex-col',
-        className,
-      ]
-        .filter(Boolean)
-        .join(' ')}
-      {...props}
-    >
+    return (
       <div
-        ref={ref}
-        className="h-full w-full lg:w-3/5 mx-auto py-16 px-10 max-w-3xl relative"
-      >
-        <Palette
-          className="h-full w-full cursor-pointer"
-          colors={colors}
-          colorOnClick={handleColorClick}
-          activeColor={edit && currentColor.index}
-        />
-
-        {edit && (
-          <ColorPicker
-            hex={currentColor.color.hex}
-            colorOnChange={handleChangeColor}
-            className="absolute top-0 right-0"
-          />
-        )}
-      </div>
-      <button
-        onClick={addPalette}
         className={[
-          'disabled:bg-button-gray',
-          'py-1',
-          'px-8',
-          'rounded-lg',
-          'disabled:text-gray-600',
-          'border',
-          'disabled:border-button-gray',
-          'bg-gradient-to-r',
-          !buttonDisabled && 'from-button-green',
-          'to-button-blue',
-          'text-black',
-          'mb-10',
-          'w-min',
-          'mx-auto',
+          'comp-create-card',
+          'text-white h-40',
+          'flex',
+          'flex-col',
+          className,
         ]
           .filter(Boolean)
           .join(' ')}
-        disabled={buttonDisabled}
+        {...props}
       >
-        Submit
-      </button>
-    </div>
-  );
+        <div
+          ref={ref}
+          className="h-full w-full lg:w-3/5 mx-auto py-16 px-10 max-w-3xl relative"
+        >
+          <Palette
+            className="h-full w-full cursor-pointer"
+            colors={colors}
+            colorOnClick={handleColorClick}
+            activeColor={edit && currentColor.index}
+          />
+
+          {edit && (
+            <ColorPicker
+              hex={currentColor.color.hex}
+              colorOnChange={handleChangeColor}
+              className="absolute top-0 right-0"
+            />
+          )}
+        </div>
+        <button
+          onClick={addPalette}
+          className={[
+            'disabled:bg-button-gray',
+            'py-1',
+            'px-8',
+            'rounded-lg',
+            'disabled:text-gray-600',
+            'border',
+            'disabled:border-button-gray',
+            'bg-gradient-to-r',
+            !buttonDisabled && 'from-button-green',
+            'to-button-blue',
+            'text-black',
+            'mb-10',
+            'w-min',
+            'mx-auto',
+          ]
+            .filter(Boolean)
+            .join(' ')}
+          disabled={buttonDisabled}
+        >
+          Submit
+        </button>
+      </div>
+    );
+  };
 };
 
 export default CreateCard;
