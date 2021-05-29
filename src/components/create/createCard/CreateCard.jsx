@@ -39,7 +39,7 @@ const CreateCard = ({ className, ...props }) => {
     setEdit(true);
     buttonDisabled && setButtonDisabled(false);
   };
-  const { user, addCustomPalette, customPalettes } = useContext(context);
+  const { user } = useContext(context);
   const addPalette = () => {
     const paletteId = makePaletteId(colors);
     checkAvailable(paletteId).then((available) => {
@@ -62,68 +62,68 @@ const CreateCard = ({ className, ...props }) => {
         });
       }
     });
-    const ref = useRef();
-    useOnClickAway(ref, () => setEdit(false));
+  };
+  const ref = useRef();
+  useOnClickAway(ref, () => setEdit(false));
 
-    return (
+  return (
+    <div
+      className={[
+        'comp-create-card',
+        'text-white h-40',
+        'flex',
+        'flex-col',
+        className,
+      ]
+        .filter(Boolean)
+        .join(' ')}
+      {...props}
+    >
       <div
+        ref={ref}
+        className="h-full w-full lg:w-3/5 mx-auto py-16 px-10 max-w-3xl relative"
+      >
+        <Palette
+          className="h-full w-full cursor-pointer"
+          colors={colors}
+          colorOnClick={handleColorClick}
+          activeColor={edit && currentColor.index}
+        />
+
+        {edit && (
+          <ColorPicker
+            hex={currentColor.color.hex}
+            colorOnChange={handleChangeColor}
+            className="absolute top-0 right-0"
+          />
+        )}
+      </div>
+      <button
+        onClick={addPalette}
         className={[
-          'comp-create-card',
-          'text-white h-40',
-          'flex',
-          'flex-col',
-          className,
+          'disabled:bg-button-gray',
+          'py-1',
+          'px-8',
+          'rounded-lg',
+          'disabled:text-gray-600',
+          'border',
+          'disabled:border-button-gray',
+          'bg-gradient-to-r',
+          !buttonDisabled && 'from-button-green',
+          'to-button-blue',
+          'text-black',
+          'mb-10',
+          'w-min',
+          'mx-auto',
         ]
           .filter(Boolean)
           .join(' ')}
-        {...props}
+        disabled={buttonDisabled}
       >
-        <div
-          ref={ref}
-          className="h-full w-full lg:w-3/5 mx-auto py-16 px-10 max-w-3xl relative"
-        >
-          <Palette
-            className="h-full w-full cursor-pointer"
-            colors={colors}
-            colorOnClick={handleColorClick}
-            activeColor={edit && currentColor.index}
-          />
-
-          {edit && (
-            <ColorPicker
-              hex={currentColor.color.hex}
-              colorOnChange={handleChangeColor}
-              className="absolute top-0 right-0"
-            />
-          )}
-        </div>
-        <button
-          onClick={addPalette}
-          className={[
-            'disabled:bg-button-gray',
-            'py-1',
-            'px-8',
-            'rounded-lg',
-            'disabled:text-gray-600',
-            'border',
-            'disabled:border-button-gray',
-            'bg-gradient-to-r',
-            !buttonDisabled && 'from-button-green',
-            'to-button-blue',
-            'text-black',
-            'mb-10',
-            'w-min',
-            'mx-auto',
-          ]
-            .filter(Boolean)
-            .join(' ')}
-          disabled={buttonDisabled}
-        >
-          Submit
-        </button>
-      </div>
-    );
-  };
+        Submit
+      </button>
+    </div>
+  );
 };
 
 export default CreateCard;
