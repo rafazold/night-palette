@@ -17,13 +17,15 @@ const CardList = ({ list = [], type = 'D' }) => {
             key={'R' + index + type}
             className="comp-card-list flex flex-col lg:flex-row w-full mx-4 lg:mx-auto"
           >
-            {row.map(({ id, colors }) => {
+            {row.map(({ id, colors, likes, createdAt }) => {
               return (
                 <Card
                   onClick={() => selectCard(id, index, type)}
                   palette={colors}
                   key={id}
                   id={id}
+                  likes={likes}
+                  creationTime={createdAt}
                   expanded={selectedCard['key'] === id}
                   shrink={
                     selectedCard['key'] !== id &&
