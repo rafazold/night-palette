@@ -23,14 +23,17 @@ const ColorPicker = ({
           <HexColorPicker
             className={pickerClassName}
             color={color}
-            onChange={colorOnChange}
+            onChange={(e) => {
+              setColor(e);
+              colorOnChange(e);
+            }}
           />
           <div className="flex justify-center items-center mt-2">
             <span className="text-white mr-4 text-lg">Hex:</span>
             <HexColorInput
               className="text-black w-1/2 rounded-sm"
               color={color}
-              onChange={setColor}
+              onChange={colorOnChange}
             />
           </div>
         </>
