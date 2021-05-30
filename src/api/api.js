@@ -61,16 +61,18 @@ export const checkAvailable = async (id) => {
   return await palettes
     .where('id', '==', id)
     .get()
-    .then((snap) => {
-      console.log(snap.metadata);
-      return snap.empty;
-    });
+    .then((snap) => snap.empty);
 };
 
-export const addLIke = async (paletteId, userId) => {
-  return await palettes.doc(paletteId).update({
-    likes: { [userId]: true },
-  });
+export const addLike = async (paletteId, userId) => {
+  return await palettes.doc(paletteId).set(
+    {
+      likes: { [userId]: true },
+    },
+    {
+      merge: true,
+    }
+  );
 };
 export const removeLike = async (paletteId, userId) => {
   return await palettes.doc(paletteId).set(

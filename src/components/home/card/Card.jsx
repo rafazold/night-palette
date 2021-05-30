@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import Palette from '../../shared/Palette.jsx';
 import Star from '../../../assets/images/icons/star.svg';
 import context from '../../../context/context';
-import { addLIke, removeLike } from '../../../api/api';
+import { addLike, removeLike } from '../../../api/api';
 import { toast } from 'react-toastify';
 import moment from 'moment';
 
@@ -19,7 +19,7 @@ const Card = ({
   const { user } = useContext(context);
   const isLiked = user ? likes.hasOwnProperty(user.uid) : false;
 
-  const handleLike = (e, paletteId, liked = false) => {
+  const handleLike = (e, paletteId) => {
     e.stopPropagation();
     if (!user) {
       toast.dark('please log in to like a palette', {
@@ -28,7 +28,7 @@ const Card = ({
       return;
     }
     !isLiked
-      ? addLIke(paletteId, user.uid).then(() =>
+      ? addLike(paletteId, user.uid).then(() =>
           console.log('added ====> \npalette : ', paletteId, 'user: ', user.uid)
         )
       : removeLike(paletteId, user.uid).then(() =>
