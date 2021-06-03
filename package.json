@@ -15,14 +15,16 @@
     "react-router-dom": "^5.2.0",
     "react-select": "^4.3.0",
     "react-toastify": "^7.0.4",
-    "react-tooltip": "^4.2.19"
+    "react-tooltip": "^4.2.19",
+    "serve": "^11.3.2"
   },
   "scripts": {
+    "start": "serve dist -s",
     "build-css": "tailwind build node_modules/tailwindcss/tailwind.css -o dist/style.css",
     "predev": "yarn build-css",
-    "dev": "webpack serve --mode development",
+    "dev": "webpack serve --mode development --config webpack.config.development.js",
     "prebuild": "NODE_ENV=production yarn build-css",
-    "build": "webpack --mode production "
+    "build": "export $(cat .env | xargs) && webpack --mode production --config webpack.config.production.js"
   },
   "devDependencies": {
     "@babel/core": "^7.13.14",
@@ -32,12 +34,17 @@
     "@svgr/webpack": "^5.5.0",
     "autoprefixer": "^10.2.5",
     "babel-loader": "^8.2.2",
+    "chokidar-cli": "^2.1.0",
+    "clean-webpack-plugin": "^4.0.0-alpha.0",
     "css-loader": "^5.2.0",
+    "cssnano": "^5.0.5",
     "dotenv": "^8.2.0",
     "dotenv-webpack": "^7.0.2",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.3.1",
+    "mini-css-extract-plugin": "^1.6.0",
     "postcss": "^8.2.9",
+    "postcss-loader": "^5.3.0",
     "prettier": "^2.2.1",
     "style-loader": "^2.0.0",
     "tailwindcss": "^2.1.2",
@@ -45,6 +52,7 @@
     "webpack": "^5.30.0",
     "webpack-cli": "^4.6.0",
     "webpack-dev-server": "^3.11.2",
+    "webpack-merge": "^5.7.3",
     "webpack-remove-empty-scripts": "^0.7.1"
   },
   "prettier": {

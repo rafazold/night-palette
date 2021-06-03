@@ -1,7 +1,5 @@
-require('dotenv/config');
-
 const HtmlPlugin = require('html-webpack-plugin');
-const DotenvPlugin = require('dotenv-webpack');
+
 const { resolve } = require('path');
 
 const publicPath = process.env.PUBLIC_PATH || '/';
@@ -9,7 +7,7 @@ const publicPath = process.env.PUBLIC_PATH || '/';
 const context = resolve(__dirname, 'src');
 
 module.exports = {
-  entry: ['core-js/stable', 'regenerator-runtime/runtime', './src'],
+  // entry: ['core-js/stable', 'regenerator-runtime/runtime', './src'],
   output: {
     publicPath,
     path: resolve(__dirname, 'dist'),
@@ -21,33 +19,30 @@ module.exports = {
         loader: 'babel-loader',
         include: context,
         options: {
-          presets: ['@babel/preset-react'],
-          plugins: [
+          presets: [
             [
-              '@babel/transform-runtime',
+              '@babel/preset-react',
               {
-                regenerator: true,
+                runtime: 'automatic',
               },
             ],
           ],
         },
       },
-      { test: /\.css$/, use: ['style-loader', 'css-loader'] },
+      // { test: /\.css$/, use: ['style-loader', 'css-loader'] },
       {
         test: /\.svg$/,
         use: ['@svgr/webpack'],
       },
-      {
-        test: /\.(png|jpe?g|gif)$/i,
-        loader: 'file-loader',
-        options: {
-          publicPath,
-        },
-      },
     ],
   },
+  resolve: {
+    extensions: ['.js', '.jsx', '.json'],
+    alias: {
+      '@': resolve(__dirname, 'src'),
+    },
+  },
   plugins: [
-    new DotenvPlugin(),
     new HtmlPlugin({
       inject: true,
       meta: {
@@ -56,12 +51,4 @@ module.exports = {
       title: 'Night Palette',
     }),
   ],
-  devtool: 'eval-source-map',
-  devServer: {
-    hot: true,
-    inline: true,
-    historyApiFallback: true,
-    progress: true,
-    compress: true,
-  },
 };
