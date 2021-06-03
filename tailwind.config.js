@@ -34,6 +34,8 @@ module.exports = {
       textColor: ['disabled'],
       gradientColorStops: ['disabled'],
       display: ['hover', 'group-hover'],
+      maxHeight: ['hover', 'group-hover'],
+      opacity: ['hover', 'group-hover', 'responsive'],
     },
   },
   plugins: [],
