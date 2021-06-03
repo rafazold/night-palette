@@ -33,7 +33,10 @@ const ColorPicker = ({
             <HexColorInput
               className="text-black w-1/2 rounded-sm"
               color={color}
-              onChange={colorOnChange}
+              onChange={(e) => {
+                setColor(e);
+                colorOnChange(e);
+              }}
             />
           </div>
         </>
