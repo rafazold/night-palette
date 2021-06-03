@@ -45,14 +45,20 @@ const Card = ({
     <div
       className={[
         'mx-4 px-4 pt-3 bg-card-gray shadow-main rounded-md mb-20 cursor-pointer',
-        expanded ? 'lg:w-2/3' : shrink ? 'lg:w-1/5' : 'lg:w-60',
+        expanded ? 'lg:w-2/3' : shrink ? 'lg:w-1/5' : 'lg:w-64',
         className,
       ]
         .filter(Boolean)
         .join(' ')}
       {...props}
     >
-      <Palette colors={palette} cardId={id} tooltip className="h-72 lg:h-56" />
+      <Palette
+        expanded={expanded}
+        colors={palette}
+        cardId={id}
+        tooltip
+        className="h-72"
+      />
       <div
         className={[
           'flex',
