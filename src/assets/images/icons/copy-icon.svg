@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8.355 8.227">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #efefef;
+      }
+    </style>
+  </defs>
+  <g id="Copy_Icon" data-name="Copy Icon" transform="translate(-483 -460.8)">
+    <path id="Path_154124" data-name="Path 154124" class="cls-1" d="M488.028,466.921h-4.372a.632.632,0,0,1-.656-.6V461.4a.632.632,0,0,1,.656-.6h4.372a.632.632,0,0,1,.656.6v4.912A.632.632,0,0,1,488.028,466.921Z" transform="translate(0 0)"/>
+    <path id="Path_154125" data-name="Path 154125" class="cls-1" d="M730.128,640.6H729.6a.256.256,0,0,0-.046,0v4.8a.632.632,0,0,1-.657.6h-3.769a.222.222,0,0,0-.027.107.632.632,0,0,0,.656.6h4.373a.632.632,0,0,0,.656-.6V641.2A.632.632,0,0,0,730.128,640.6Z" transform="translate(-239.429 -177.693)"/>
+  </g>
+</svg>

@@ -15,7 +15,7 @@ const CardList = ({ list = [], type = 'D' }) => {
         return (
           <div
             key={'R' + index + type}
-            className="comp-card-list flex flex-col lg:flex-row w-full mx-4 lg:mx-auto"
+            className="comp-card-list flex flex-col lg:flex-row w-full mx-4"
           >
             {row.map(({ id, colors, likes, createdAt }) => {
               return (
