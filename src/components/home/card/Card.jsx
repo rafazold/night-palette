@@ -25,19 +25,13 @@ const Card = ({
       toast.dark('please log in to like a palette', {
         position: toast.POSITION.BOTTOM_RIGHT,
       });
-      return;
     }
     !isLiked
-      ? addLike(paletteId, user.uid).then(() =>
-          console.log('added ====> \npalette : ', paletteId, 'user: ', user.uid)
-        )
+      ? addLike(paletteId, user.uid).then(() => {
+          console.log('added ====> like');
+        })
       : removeLike(paletteId, user.uid).then(() =>
-          console.log(
-            'removed ====> \npalette : ',
-            paletteId,
-            'user: ',
-            user.uid
-          )
+          console.log('removed ====> like')
         );
   };
 

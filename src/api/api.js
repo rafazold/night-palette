@@ -25,19 +25,23 @@ export const getPalettesByCreationTime = (callBack) => {
       callBack(pal);
     });
   if (!callBack) {
+    console.log('unsubscribe time');
     unsubscribe();
   }
 };
 
 export const getPalettesByLikes = (callBack) => {
-  const unsubscribe = palettes.orderBy('likes', 'desc').onSnapshot((snap) => {
-    let pal = [];
-    snap.docs.map((doc) => {
-      pal.push(doc.data());
+  const unsubscribe = palettes
+    .orderBy('likesCount', 'desc')
+    .onSnapshot((snap) => {
+      let pal = [];
+      snap.docs.map((doc) => {
+        pal.push(doc.data());
+      });
+      callBack(pal);
     });
-    callBack(pal);
-  });
   if (!callBack) {
+    console.log('unsubscribe likes');
     unsubscribe();
   }
 };
