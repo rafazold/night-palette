@@ -15,8 +15,10 @@ export default () => {
   const [activeFilter, setActiveFilter] = useState('new');
   const getPalettes = (filter) => {
     if (filter === 'new') {
+      getPalettesByLikes();
       getPalettesByCreationTime(setPalettes);
     } else {
+      getPalettesByCreationTime();
       getPalettesByLikes(setPalettes);
     }
   };
