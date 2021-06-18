@@ -14,36 +14,23 @@ export const getAllPalettes = async () => {
 };
 
 export const getPalettesByCreationTime = (callBack) => {
-  getPalettesByLikes();
-  const unsubscribe = palettes
-    .orderBy('createdAt', 'desc')
-    .onSnapshot((snap) => {
-      let pal = [];
-      snap.docs.map((doc) => {
-        pal.push(doc.data());
-      });
-      callBack(pal);
+  return palettes.orderBy('createdAt', 'desc').onSnapshot((snap) => {
+    let pal = [];
+    snap.docs.map((doc) => {
+      pal.push(doc.data());
     });
-  if (!callBack) {
-    console.log('unsubscribe time');
-    unsubscribe();
-  }
+    callBack(pal);
+  });
 };
 
 export const getPalettesByLikes = (callBack) => {
-  const unsubscribe = palettes
-    .orderBy('likesCount', 'desc')
-    .onSnapshot((snap) => {
-      let pal = [];
-      snap.docs.map((doc) => {
-        pal.push(doc.data());
-      });
-      callBack(pal);
+  return palettes.orderBy('likesCount', 'desc').onSnapshot((snap) => {
+    let pal = [];
+    snap.docs.map((doc) => {
+      pal.push(doc.data());
     });
-  if (!callBack) {
-    console.log('unsubscribe likes');
-    unsubscribe();
-  }
+    callBack(pal);
+  });
 };
 
 export const setPalette = async ({ userId, id, colors, type }) => {

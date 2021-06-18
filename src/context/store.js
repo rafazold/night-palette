@@ -13,15 +13,7 @@ export default () => {
   const [user, setUser] = useState(null);
   const [palettes, setPalettes] = useState(null);
   const [activeFilter, setActiveFilter] = useState('new');
-  const getPalettes = (filter) => {
-    if (filter === 'new') {
-      getPalettesByLikes();
-      getPalettesByCreationTime(setPalettes);
-    } else {
-      getPalettesByCreationTime();
-      getPalettesByLikes(setPalettes);
-    }
-  };
+
   useEffect(() => {
     const unregisterAuthObserver = firebase
       .auth()
@@ -30,8 +22,15 @@ export default () => {
       });
     return () => unregisterAuthObserver();
   }, []);
+
   useEffect(() => {
-    getPalettes(activeFilter);
+    if (activeFilter === 'new') {
+      const unsubscribe = getPalettesByCreationTime(setPalettes);
+      return () => unsubscribe();
+    } else {
+      const unsubscribe = getPalettesByLikes(setPalettes);
+      return () => unsubscribe();
+    }
   }, [activeFilter]);
 
   const addCustomPalette = ({ paletteId, colors }) => {
