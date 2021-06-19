@@ -1,3 +1,5 @@
+const plugin = require('tailwindcss/plugin');
+
 module.exports = {
   purge: {
     content: ['./src/**/**/*.jsx', './src/**/**/*.js', './src/index.js'],
@@ -38,5 +40,14 @@ module.exports = {
       opacity: ['hover', 'group-hover', 'responsive'],
     },
   },
-  plugins: [],
+  plugins: [
+    plugin(function ({ addUtilities }) {
+      const newUtilities = {
+        '.hide-tap': {
+          '-webkit-tap-highlight-color': 'transparent',
+        },
+      };
+      addUtilities(newUtilities);
+    }),
+  ],
 };

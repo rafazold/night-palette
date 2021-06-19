@@ -9,6 +9,11 @@ const CardList = ({ list = [], type = 'D' }) => {
       ? setSelectedCard('')
       : setSelectedCard({ key, row, type });
   };
+  const handleClick = (e, id, index, type) => {
+    e.preventDefault();
+    e.stopPropagation();
+    selectCard(id, index, type);
+  };
   return (
     <>
       {list.map((row, index) => {
@@ -20,7 +25,7 @@ const CardList = ({ list = [], type = 'D' }) => {
             {row.map(({ id, colors, likes, createdAt }) => {
               return (
                 <Card
-                  onClick={() => selectCard(id, index, type)}
+                  onClick={(e) => handleClick(e, id, index, type)}
                   palette={colors}
                   key={id}
                   id={id}
