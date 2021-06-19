@@ -38,7 +38,7 @@ const Card = ({
   return (
     <div
       className={[
-        'mx-4 px-4 pt-3 bg-card-gray shadow-main rounded-md mb-20 cursor-pointer',
+        'mx-4 px-4 pt-3 bg-card-gray shadow-main rounded-md mb-20 cursor-pointer hide-tap',
         expanded ? 'lg:w-2/3' : shrink ? 'lg:w-1/5' : 'lg:w-64',
         className,
       ]
