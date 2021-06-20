@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import Card from './Card.jsx';
+import Card from '../../shared/Card.jsx';
 import context from '../../../context/context.js';
 
 const CardList = ({ list = [], type = 'D' }) => {
@@ -25,7 +25,10 @@ const CardList = ({ list = [], type = 'D' }) => {
             {row.map(({ id, colors, likes, createdAt }) => {
               return (
                 <Card
-                  onClick={(e) => handleClick(e, id, index, type)}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handleClick(e, id, index, type);
+                  }}
                   palette={colors}
                   key={id}
                   id={id}

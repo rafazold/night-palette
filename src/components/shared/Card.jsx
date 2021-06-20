@@ -1,10 +1,18 @@
-import React, { useContext } from 'react';
-import Palette from '../../shared/Palette.jsx';
-import Star from '../../../assets/images/icons/star.svg';
-import context from '../../../context/context';
-import { addLike, removeLike } from '../../../api/api';
+import React, { useContext, useState } from 'react';
+import Palette from './Palette.jsx';
+import Star from '../../assets/images/icons/star.svg';
+import ShareIcon from '../../assets/images/icons/share-Icon.svg';
+import context from '../../context/context';
+import { addLike, removeLike } from '../../api/api';
 import { toast } from 'react-toastify';
 import moment from 'moment';
+import {
+  EmailShareButton,
+  FacebookShareButton,
+  WhatsappShareButton,
+  WhatsappIcon,
+} from 'react-share';
+import { useLocation, useParams } from 'react-router-dom';
 
 const Card = ({
   palette,
@@ -18,6 +26,7 @@ const Card = ({
 }) => {
   const { user } = useContext(context);
   const isLiked = user ? likes.hasOwnProperty(user.uid) : false;
+  const [sharing, setSharing] = useState(false);
 
   const handleLike = (e, paletteId) => {
     e.stopPropagation();
@@ -74,6 +83,34 @@ const Card = ({
               .join(' ')}
           />
           <span>{Object.keys(likes).length}</span>
+        </div>
+        <div className="flex relative">
+          <button
+            className={[sharing && 'hidden', 'absolute', 'top-0', 'left-0']
+              .filter(Boolean)
+              .join(' ')}
+            onClick={(e) => {
+              e.stopPropagation();
+
+              console.log(id.replaceAll('#', '-'), window.location.host);
+              setSharing(true);
+            }}
+          >
+            <ShareIcon className="h-7" />
+          </button>
+          <WhatsappShareButton
+            onClick={(e) => {
+              e.stopPropagation();
+            }}
+            onShareWindowClose={() => setSharing(false)}
+            title="Night Palette share"
+            url={`https://${window.location.host}/card/${id.replaceAll(
+              '#',
+              '-'
+            )}`}
+          >
+            <WhatsappIcon size="28" round />
+          </WhatsappShareButton>
         </div>
         <div className="text-sm text-gray-600">
           {creationTime && moment(creationTime.toDate()).fromNow()}

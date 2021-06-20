@@ -33,6 +33,20 @@ export const getPalettesByLikes = (callBack) => {
   });
 };
 
+export const getPaletteById = async (id) => {
+  return await palettes
+    .where('id', '==', id)
+    .get()
+    .then((snap) => {
+      let docs = [];
+      snap.forEach((doc) => {
+        docs.push(doc.data());
+      });
+      return docs;
+    })
+    .catch((err) => console.log(err));
+};
+
 export const setPalette = async ({ userId, id, colors, type }) => {
   const creationTime = firebase.firestore.FieldValue.serverTimestamp();
   return await palettes
