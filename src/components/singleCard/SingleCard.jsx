@@ -2,12 +2,25 @@ import React, { useEffect, useState } from 'react';
 import Card from '../shared/Card.jsx';
 import { useParams } from 'react-router-dom';
 import { getPaletteById } from '../../api/api';
+import ShareIcon from '../../assets/images/icons/share-Icon.svg';
+import { toast } from 'react-toastify';
 
 const SingleCard = () => {
   const [palette, setPalette] = useState(null);
   const [loading, setLoading] = useState(true);
   let { id } = useParams();
-  const decodedId = id.replaceAll('-', '#');
+  const decodedId = id ? id.replaceAll('-', '#') : '';
+
+  const shareClick = (e, link) => {
+    e.preventDefault();
+    e.stopPropagation();
+    navigator.clipboard.writeText(link).then((r) =>
+      toast.dark('link copied to clipboard', {
+        position: toast.POSITION.BOTTOM_RIGHT,
+      })
+    );
+  };
+
   useEffect(() => {
     console.log(decodedId);
     getPaletteById(decodedId).then((data) => {
@@ -31,11 +44,19 @@ const SingleCard = () => {
           />
           <div className="flex items-center w-2/3 mx-auto justify-center gap-2 text-gray-600">
             <span>Keep On Sharing</span>
-            <input
-              className="border p-2 border-gray-600 text-gray-600 rounded-lg w-3/4 text-sm bg-transparent"
-              readOnly
-              value={window.location.href}
-            />
+            <div className="relative w-3/4">
+              <input
+                className="border py-2 pl-2 pr-8 border-gray-600 text-gray-600 rounded-lg w-full text-sm bg-transparent"
+                readOnly
+                value={window.location.href}
+              />
+              <button
+                className="absolute right-2 top-2"
+                onClick={(e) => shareClick(e, window.location.href)}
+              >
+                <ShareIcon className="w-6 h-6" />
+              </button>
+            </div>
           </div>
         </div>
       ) : (
