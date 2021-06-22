@@ -1,5 +1,5 @@
 import React, { useEffect, useContext } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { useLocation, useHistory, NavLink } from 'react-router-dom';
 import context from '../../context/context';
 import { firebase } from '../../api/firebase';
 import Star from '../../assets/images/icons/star.svg';
@@ -8,6 +8,8 @@ import { toast } from 'react-toastify';
 
 const Header = () => {
   const { setUser, user, activeFilter, setActiveFilter } = useContext(context);
+  const history = useHistory();
+  const location = useLocation();
   const signOut = () => {
     firebase
       .auth()
@@ -33,8 +35,8 @@ const Header = () => {
             <NavLink
               to="/"
               exact
-              activeClassName="text-white h-10"
-              className="flex flex-col justify-center"
+              activeClassName="text-white"
+              className="flex flex-col justify-center h-10"
             >
               <Logo className="h-6 text-white hover:text-button-blue" />
             </NavLink>
@@ -43,6 +45,7 @@ const Header = () => {
             <button
               onClick={() => {
                 setActiveFilter('new');
+                location.pathname !== '/' && history.push('/');
               }}
               className={[
                 'text-white',
@@ -60,6 +63,7 @@ const Header = () => {
             <button
               onClick={() => {
                 setActiveFilter('popular');
+                location.pathname !== '/' && history.push('/');
               }}
               className={[
                 'text-white',
