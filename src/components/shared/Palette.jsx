@@ -18,6 +18,7 @@ const Palette = ({
     navigator.clipboard.writeText(hex).then((r) =>
       toast.dark(`${hex} copied to clipboard`, {
         position: toast.POSITION.BOTTOM_RIGHT,
+        progressStyle: { background: hex },
       })
     );
   };
