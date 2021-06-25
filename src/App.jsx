@@ -1,6 +1,6 @@
 import React, { Suspense } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Header from './components/shared/Header.jsx';
+import Header from './components/header/Header.jsx';
 import Context from './context/context.js';
 import Store from './context/store.js';
 import routes from './routes.js';
