@@ -71,7 +71,7 @@ const Card = ({
           .join(' ')}
       >
         <div
-          className="text-base flex items-center px-1.5 py-0.5 bg-black"
+          className="text-base flex items-center px-1.5 py-0.5 bg-black rounded-md"
           onClick={(e) => handleLike(e, id)}
         >
           <Star
