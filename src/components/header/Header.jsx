@@ -1,10 +1,11 @@
-import React, { useEffect, useContext } from 'react';
+import React, { useEffect, useContext, useState, useRef } from 'react';
 import { useLocation, useHistory, NavLink } from 'react-router-dom';
 import context from '../../context/context';
 import { firebase } from '../../api/firebase';
 import Star from '../../assets/images/icons/star.svg';
 import Logo from '../../assets/images/icons/logo-night-palette.svg';
 import { toast } from 'react-toastify';
+import SignUpPop from './SignUp';
 
 const Header = () => {
   const { setUser, user, activeFilter, setActiveFilter } = useContext(context);
@@ -18,6 +19,7 @@ const Header = () => {
         setUser(null);
       });
   };
+
   useEffect(() => {
     const unregisterAuthObserver = firebase
       .auth()
@@ -103,11 +105,11 @@ const Header = () => {
             <>
               <NavLink
                 to={'/create'}
-                className="py-1 px-2 my-auto rounded-lg bg-gradient-to-r from-button-green to-button-blue text-black text-xs lg:text-base"
+                className="py-1 px-2 my-auto rounded-lg bg-gradient-to-r from-button-green to-button-blue text-black text-xs lg:text-sm"
               >
                 + Add Palette
               </NavLink>
-              <button onClick={signOut}>Sign Out</button>
+              <SignUpPop signOut={signOut} user={user} />
             </>
           )}
         </div>

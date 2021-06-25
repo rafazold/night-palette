@@ -1,4 +1,4 @@
-import React, { useState, useRef, useContext } from 'react';
+import React, { useState, useRef, useContext, useEffect } from 'react';
 import Palette from '../../shared/Palette.jsx';
 import ColorPicker from './ColorPicker.jsx';
 import useOnClickAway from '../../../hooks/clickAway.jsx';
@@ -64,6 +64,15 @@ const CreateCard = ({ className, ...props }) => {
   };
   const ref = useRef();
   useOnClickAway(ref, () => setEdit(false));
+
+  useEffect(() => {
+    if (!user) {
+      setButtonDisabled(true);
+      toast.dark('Please log in to add Palettes', {
+        position: toast.POSITION.BOTTOM_RIGHT,
+      });
+    }
+  }, [user]);
 
   return (
     <div
