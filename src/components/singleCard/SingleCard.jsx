@@ -40,7 +40,7 @@ const SingleCard = () => {
             creationTime={palette.createdAt}
             likes={palette.likes}
             expanded
-            className="mx-auto"
+            className="lg:mx-auto"
           />
           <div className="flex items-center w-2/3 mx-auto justify-center gap-2 text-gray-600">
             <span>Keep On Sharing</span>
