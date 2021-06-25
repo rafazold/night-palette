@@ -22,10 +22,8 @@ const SingleCard = () => {
   };
 
   useEffect(() => {
-    console.log(decodedId);
     getPaletteById(decodedId).then((data) => {
       data.length === 1 && setPalette(data[0]);
-      console.log(data[0], data[0].colors);
       setLoading(false);
     });
   }, []);
@@ -35,7 +33,7 @@ const SingleCard = () => {
         <div className="comp-single text-white flex flex-col justify-center">
           <div className="text-3xl text-center my-12">Share Palette</div>
           <Card
-            id={id}
+            id={decodedId}
             palette={palette.colors}
             creationTime={palette.createdAt}
             likes={palette.likes}
