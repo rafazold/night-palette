@@ -25,7 +25,8 @@
     "predev": "yarn build-css",
     "dev": "webpack serve --mode development --config webpack.config.development.js",
     "prebuild": "NODE_ENV=production yarn build-css",
-    "build": "export $(cat .env | xargs) && webpack --mode production --config webpack.config.production.js"
+    "build": "export $(cat .env | xargs) && webpack --mode production --config webpack.config.production.js",
+    "postbuild": "cp src/_redirects dist/_redirects"
   },
   "devDependencies": {
     "@babel/core": "^7.13.14",

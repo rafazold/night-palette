@@ -3,7 +3,6 @@ const plugin = require('tailwindcss/plugin');
 module.exports = {
   purge: {
     content: ['./src/**/**/*.jsx', './src/**/**/*.js', './src/index.js'],
-    // enabled: true,
     whitelist: ['font-primary'],
   },
   darkMode: false, // or 'media' or 'class'
