@@ -42,8 +42,8 @@ const SingleCard = () => {
             expanded
             className="lg:mx-auto"
           />
-          <div className="flex items-center w-2/3 mx-auto justify-center gap-2 text-gray-600">
-            <span>Keep On Sharing</span>
+          <div className="flex items-center lg:w-2/3 mx-4 lg:mx-auto justify-center gap-2 text-gray-600">
+            <span className="whitespace-nowrap">Keep On Sharing</span>
             <div className="relative w-3/4">
               <input
                 className="border py-2 pl-2 pr-8 border-gray-600 text-gray-600 rounded-lg w-full text-sm bg-transparent"
