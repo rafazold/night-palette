@@ -6,13 +6,6 @@ import firebase from 'firebase';
 const db = app.firestore();
 const palettes = db.collection('palettes');
 
-export const getAllPalettes = async () => {
-  const pal = palettes.get().then((snap) => {
-    return snap.docs.map((doc) => doc.data());
-  });
-  return await pal;
-};
-
 export const getPalettesByCreationTime = (callBack) => {
   return palettes.orderBy('createdAt', 'desc').onSnapshot((snap) => {
     let pal = [];
@@ -25,6 +18,16 @@ export const getPalettesByCreationTime = (callBack) => {
 
 export const getPalettesByLikes = (callBack) => {
   return palettes.orderBy('likesCount', 'desc').onSnapshot((snap) => {
+    let pal = [];
+    snap.docs.map((doc) => {
+      pal.push(doc.data());
+    });
+    callBack(pal);
+  });
+};
+
+export const getPalettesByUser = (callBack, userId) => {
+  return palettes.where('userId', '==', userId).onSnapshot((snap) => {
     let pal = [];
     snap.docs.map((doc) => {
       pal.push(doc.data());
@@ -69,6 +72,15 @@ export const checkAvailable = async (id) => {
     .then((snap) => snap.empty);
 };
 
+export const checkHasOwnPalettes = async (id) => {
+  return await palettes
+    .where('userId', '==', id)
+    .get()
+    .then((snap) => {
+      return !snap.empty;
+    });
+};
+
 export const addLike = async (paletteId, userId) => {
   return await palettes.doc(paletteId).set(
     {
@@ -79,6 +91,7 @@ export const addLike = async (paletteId, userId) => {
     }
   );
 };
+
 export const removeLike = async (paletteId, userId) => {
   return await palettes.doc(paletteId).set(
     {

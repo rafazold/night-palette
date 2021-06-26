@@ -37,7 +37,7 @@ const CreateCard = ({ className, ...props }) => {
     };
     setCurrentColor(current);
     setEdit(true);
-    buttonDisabled && setButtonDisabled(false);
+    buttonDisabled && user && setButtonDisabled(false);
   };
   const { user } = useContext(context);
   const addPalette = () => {

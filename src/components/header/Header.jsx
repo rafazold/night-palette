@@ -58,7 +58,7 @@ const Header = () => {
                 .filter(Boolean)
                 .join(' ')}
             >
-              new
+              New
             </button>
           </li>
           <li>
@@ -80,7 +80,26 @@ const Header = () => {
               <Star
                 className={['w-3', 'h-3', 'mr-1'].filter(Boolean).join(' ')}
               />
-              popular
+              Popular
+            </button>
+          </li>
+          <li>
+            <button
+              onClick={() => {
+                setActiveFilter('user');
+                location.pathname !== '/personal' && history.push('/personal');
+              }}
+              className={[
+                'text-white',
+                'h-10',
+                'focus:outline-none',
+                'flex items-center',
+                activeFilter === 'user' && 'text-button-blue',
+              ]
+                .filter(Boolean)
+                .join(' ')}
+            >
+              My Palettes
             </button>
           </li>
         </ul>

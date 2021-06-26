@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
-import Card from '../../shared/Card.jsx';
-import context from '../../../context/context.js';
+import Card from './Card.jsx';
+import context from '../../context/context.js';
 
 const CardList = ({ list = [], type = 'D' }) => {
   const { selectedCard, setSelectedCard } = useContext(context);
