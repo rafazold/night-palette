@@ -2,10 +2,25 @@ import React, { useState, useEffect, useContext } from 'react';
 import { groupArray } from '../../../utils.js';
 import CardList from './CardList.jsx';
 import context from '../../../context/context.js';
+import {
+  getPalettesByCreationTime,
+  getPalettesByLikes,
+} from '../../../api/api';
 
 const CardFeed = ({ className, ...props }) => {
   const [rows, setRows] = useState([]);
-  const { palettes } = useContext(context);
+  const [palettes, setPalettes] = useState(null);
+  const { activeFilter } = useContext(context);
+
+  useEffect(() => {
+    if (activeFilter === 'new') {
+      const unsubscribe = getPalettesByCreationTime(setPalettes);
+      return () => unsubscribe();
+    } else {
+      const unsubscribe = getPalettesByLikes(setPalettes);
+      return () => unsubscribe();
+    }
+  }, [activeFilter]);
 
   useEffect(() => {
     setRows(groupArray(palettes, 5));
