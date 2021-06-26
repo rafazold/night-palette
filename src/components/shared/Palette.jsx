@@ -10,17 +10,19 @@ const Palette = ({
   cardId,
   tooltip,
   expanded,
+  avoidHover = false,
   ...props
 }) => {
   const hexClick = (e, hex) => {
     e.preventDefault();
     e.stopPropagation();
-    navigator.clipboard.writeText(hex).then((r) =>
-      toast.dark(`${hex} copied to clipboard`, {
-        position: toast.POSITION.BOTTOM_RIGHT,
-        progressStyle: { background: hex },
-      })
-    );
+    !avoidHover &&
+      navigator.clipboard.writeText(hex).then((r) =>
+        toast.dark(`${hex} copied to clipboard`, {
+          position: toast.POSITION.BOTTOM_RIGHT,
+          progressStyle: { background: hex },
+        })
+      );
   };
 
   return (
@@ -68,10 +70,10 @@ const Palette = ({
                 'my-auto',
                 'flex-nowrap',
                 'transform transition-all ease-linear duration-500',
-                expanded
-                  ? 'h-auto'
-                  : 'opacity-0 max-h-0 py-0 lg:group-hover:flex lg:group-hover:opacity-100 lg:group-hover:max-h-10 lg:group-hover:py-0.5',
-                'bg-opacity-60 hover:bg-opacity-80',
+                expanded ? 'h-auto' : 'opacity-0 max-h-0 py-0 ',
+                'bg-opacity-60',
+                !avoidHover &&
+                  'lg:group-hover:flex hover:bg-opacity-80 lg:group-hover:opacity-100 lg:group-hover:max-h-10 lg:group-hover:py-0.5',
                 'overflow-hidden',
                 'right-2',
                 'items-center',

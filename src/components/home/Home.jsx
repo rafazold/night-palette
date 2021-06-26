@@ -1,5 +1,5 @@
 import React from 'react';
-import CardFeed from './card/CardFeed.jsx';
+import CardFeed from '../shared/CardFeed.jsx';
 
 const Home = () => (
   <div className="comp-home bg-black text-white">

@@ -25,6 +25,9 @@ module.exports = {
       fontFamily: {
         primary: ['Montserrat', 'sans-serif'],
       },
+      maxWidth: {
+        '17%': '17%',
+      },
     },
   },
   variants: {
