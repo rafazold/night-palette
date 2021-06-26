@@ -3,7 +3,7 @@ import CardFeed from '../shared/CardFeed.jsx';
 
 const Home = () => (
   <div className="comp-home bg-black text-white">
-    <div className="container m-auto text-light-gray">
+    <div className="container m-auto text-light-gray w-4/5 lg:w-auto">
       <h1 className="text-2xl pt-9">
         Dark Mode Color Palettes for Designers and Artists
       </h1>
