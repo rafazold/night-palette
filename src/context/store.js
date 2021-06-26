@@ -14,7 +14,7 @@ export default () => {
         setUser(user);
       });
     return () => unregisterAuthObserver();
-  }, []);
+  }, [user]);
 
   return {
     activeFilter,
