@@ -2,16 +2,13 @@ import React, { useEffect, useContext, useState, useRef } from 'react';
 import { useLocation, useHistory, NavLink } from 'react-router-dom';
 import context from '../../context/context';
 import { firebase } from '../../api/firebase';
-import Star from '../../assets/images/icons/star.svg';
-import Logo from '../../assets/images/icons/logo-night-palette.svg';
 import Moon from '../../assets/images/icons/moon-icon.svg';
 import { toast } from 'react-toastify';
 import SignUpPop from './SignUp';
+import MenuLinks from './MenuLinks';
 
 const Header = () => {
-  const { setUser, user, activeFilter, setActiveFilter } = useContext(context);
-  const history = useHistory();
-  const location = useLocation();
+  const { setUser, user } = useContext(context);
   const signOut = () => {
     firebase
       .auth()
@@ -30,77 +27,7 @@ const Header = () => {
             NP
           </div>
         </NavLink>
-        <ul className="hidden lg:flex space-x-4 font-light max-w-screen-xl my-auto ">
-          <li>
-            <NavLink
-              to="/"
-              exact
-              activeClassName="text-white"
-              className="flex flex-col justify-center h-10"
-            >
-              <Logo className="h-6 text-white hover:text-button-blue" />
-            </NavLink>
-          </li>
-          <li>
-            <button
-              onClick={() => {
-                setActiveFilter('new');
-                location.pathname !== '/' && history.push('/');
-              }}
-              className={[
-                'text-white',
-                'h-10',
-                'focus:outline-none',
-                activeFilter === 'new' && 'text-button-blue',
-              ]
-                .filter(Boolean)
-                .join(' ')}
-            >
-              New
-            </button>
-          </li>
-          <li>
-            <button
-              onClick={() => {
-                setActiveFilter('popular');
-                location.pathname !== '/' && history.push('/');
-              }}
-              className={[
-                'text-white',
-                'h-10',
-                'focus:outline-none',
-                'flex items-center',
-                activeFilter === 'popular' && 'text-button-blue',
-              ]
-                .filter(Boolean)
-                .join(' ')}
-            >
-              <Star
-                className={['w-3', 'h-3', 'mr-1'].filter(Boolean).join(' ')}
-              />
-              Popular
-            </button>
-          </li>
-          <li>
-            <button
-              onClick={() => {
-                setActiveFilter('user');
-                location.pathname !== '/personal' && history.push('/personal');
-              }}
-              className={[
-                'text-white',
-                'h-10',
-                'focus:outline-none',
-                'flex items-center',
-                activeFilter === 'user' && 'text-button-blue',
-              ]
-                .filter(Boolean)
-                .join(' ')}
-            >
-              My Palettes
-            </button>
-          </li>
-        </ul>
+        <MenuLinks className="hidden lg:flex" />
         <div className="flex items-center gap-2">
           {!user ? (
             <>
@@ -119,15 +46,18 @@ const Header = () => {
               </NavLink>
             </>
           ) : (
-            <>
+            <div className="flex items-center">
               <NavLink
                 to={'/create'}
-                className="w-10 lg:w-auto h-10 leading-10 text-center text-3xl px-2 font-bold lg:h-auto lg:py-1 my-auto rounded-lg bg-gradient-to-r from-button-green to-button-blue text-black lg:font-normal lg:text-xs lg:text-sm"
+                className="h-8 w-8 leading-8 text-center text-3xl px-2 font-bold mr-2 lg:w-auto lg:h-auto lg:py-1 my-auto rounded-lg bg-gradient-to-r from-button-green to-button-blue text-black lg:font-normal lg:text-sm"
               >
-                + <span className="hidden lg:inline">Add Palette</span>
+                <span className="">+</span>{' '}
+                <span className="hidden lg:inline">Add Palette</span>
               </NavLink>
-              <SignUpPop signOut={signOut} user={user} />
-            </>
+              <SignUpPop signOut={signOut} user={user}>
+                <MenuLinks className="flex lg:hidden" />
+              </SignUpPop>
+            </div>
           )}
         </div>
       </div>

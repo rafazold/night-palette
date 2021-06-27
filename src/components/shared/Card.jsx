@@ -70,56 +70,58 @@ const Card = ({
           .filter(Boolean)
           .join(' ')}
       >
-        <div
-          className="text-base flex items-center px-1.5 py-0.5 bg-black rounded-md"
-          onClick={(e) => handleLike(e, id)}
-        >
-          <Star
-            className={['w-3', 'h-3', 'mr-3', isLiked && 'text-button-blue']
-              .filter(Boolean)
-              .join(' ')}
-          />
-          <span>{Object.keys(likes).length}</span>
-        </div>
-        <div ref={ref} className="flex relative gap-x-2 items-center">
-          <button
-            className={[sharing && 'hidden', 'top-0', 'left-0']
-              .filter(Boolean)
-              .join(' ')}
-            onClick={(e) => {
-              e.stopPropagation();
-              setSharing(true);
-            }}
+        <div className="flex">
+          <div
+            className="text-base flex items-center px-1.5 py-0.5 bg-black rounded-md mr-2"
+            onClick={(e) => handleLike(e, id)}
           >
-            <ShareIcon className="h-7" />
-          </button>
-          <WhatsappShareButton
-            className={[!sharing && 'hidden'].filter(Boolean).join(' ')}
-            onClick={(e) => {
-              e.stopPropagation();
-            }}
-            onShareWindowClose={() => setSharing(false)}
-            title="Night Palette share"
-            url={`https://${window.location.host}/card/${
-              id ? id.replaceAll('#', '-') : ''
-            }`}
-          >
-            <WhatsappIcon size="28" round />
-          </WhatsappShareButton>
-          <button
-            className={[!sharing && 'hidden'].filter(Boolean).join(' ')}
-            onClick={(e) => {
-              e.stopPropagation();
-              const subject = 'subject=Night Palette share';
-              const body = "body=You've been invited to see a color palette";
-              const url = `https://${window.location.host}/card/${
+            <Star
+              className={['w-3', 'h-3', 'mr-3', isLiked && 'text-button-blue']
+                .filter(Boolean)
+                .join(' ')}
+            />
+            <span>{Object.keys(likes).length}</span>
+          </div>
+          <div ref={ref} className="flex relative gap-x-2 items-center">
+            <button
+              className={[sharing && 'hidden', 'top-0', 'left-0']
+                .filter(Boolean)
+                .join(' ')}
+              onClick={(e) => {
+                e.stopPropagation();
+                setSharing(true);
+              }}
+            >
+              <ShareIcon className="h-7" />
+            </button>
+            <WhatsappShareButton
+              className={[!sharing && 'hidden'].filter(Boolean).join(' ')}
+              onClick={(e) => {
+                e.stopPropagation();
+              }}
+              onShareWindowClose={() => setSharing(false)}
+              title="Night Palette share"
+              url={`https://${window.location.host}/card/${
                 id ? id.replaceAll('#', '-') : ''
-              }`;
-              location.href = `mailto:?${subject}&${body} - ${url}`;
-            }}
-          >
-            <EmailIcon size="28" round />
-          </button>
+              }`}
+            >
+              <WhatsappIcon size="28" round />
+            </WhatsappShareButton>
+            <button
+              className={[!sharing && 'hidden'].filter(Boolean).join(' ')}
+              onClick={(e) => {
+                e.stopPropagation();
+                const subject = 'subject=Night Palette share';
+                const body = "body=You've been invited to see a color palette";
+                const url = `https://${window.location.host}/card/${
+                  id ? id.replaceAll('#', '-') : ''
+                }`;
+                location.href = `mailto:?${subject}&${body} - ${url}`;
+              }}
+            >
+              <EmailIcon size="28" round />
+            </button>
+          </div>
         </div>
         <div className="text-sm text-gray-600">
           {creationTime && moment(creationTime.toDate()).fromNow()}
