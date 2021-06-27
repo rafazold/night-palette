@@ -6,10 +6,6 @@ const Popup = ({
   children,
   className,
   buttonIcon,
-  top,
-  bottom,
-  left,
-  right,
   handleOpen,
   ...props
 }) => {
