@@ -20,7 +20,7 @@ const Header = () => {
 
   return (
     <header className="w-full flex items-center bg-card-gray text-white fixed top-0 left-0 h-16 z-50 backdrop-filter backdrop-blur-lg bg-opacity-50">
-      <div className="comp-header w-full flex px-4 flex justify-between container mx-auto">
+      <div className="comp-header w-full flex px-4 flex justify-between items-center container mx-auto">
         <NavLink to="/" exact className="lg:hidden">
           <div className="flex text-3xl font-black items-center">
             <Moon className="lg:hidden h-6 text-white mr-2" />
@@ -51,7 +51,7 @@ const Header = () => {
                 to={'/create'}
                 className="h-8 w-8 leading-8 text-center text-3xl px-2 font-bold mr-2 lg:w-auto lg:h-auto lg:py-1 my-auto rounded-lg bg-gradient-to-r from-button-green to-button-blue text-black lg:font-normal lg:text-sm"
               >
-                <span className="">+</span>{' '}
+                <span className="flex justify-center items-center">+</span>
                 <span className="hidden lg:inline">Add Palette</span>
               </NavLink>
               <SignUpPop signOut={signOut} user={user}>
