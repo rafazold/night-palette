@@ -13,7 +13,7 @@ const Popup = ({
   useOnClickAway(popRef, () => handleOpen(false));
 
   return (
-    <div className="relative">
+    <div className="relative flex">
       <button onClick={() => handleOpen(true)}>{buttonIcon}</button>
       {open && (
         <div
