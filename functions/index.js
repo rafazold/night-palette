@@ -26,7 +26,7 @@ exports.setNearestColors = functions.firestore
   .document('/palettes/{paletteId}')
   .onCreate((event, context) => {
     const colors = {
-      red: 'ff003b',
+      red: '#ff003b',
       green: '#0aff00',
       blue: '#0089ff',
       purple: '#ce00ff',
