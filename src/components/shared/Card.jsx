@@ -24,7 +24,6 @@ const Card = ({
   const [sharing, setSharing] = useState(false);
   const ref = useRef();
   useOnClickAway(ref, () => setSharing(false));
-
   const handleLike = (e, paletteId) => {
     e.stopPropagation();
     if (!user) {
@@ -40,11 +39,11 @@ const Card = ({
           console.log('removed ====> like')
         );
   };
-
   return (
     <div
       className={[
-        'mx-4 px-4 pt-3 bg-card-gray shadow-main rounded-md mb-20 cursor-pointer hide-tap lg:max-w-17%',
+        'mx-4 px-4 pt-3 bg-card-gray shadow-main rounded-md mb-20 cursor-pointer hide-tap',
+        expanded ? 'lg:max-w-full' : 'lg:max-w-17%',
         expanded ? 'lg:w-2/3' : shrink ? 'lg:w-1/5' : 'lg:w-64',
         className,
       ]

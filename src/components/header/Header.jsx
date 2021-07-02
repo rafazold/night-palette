@@ -4,8 +4,9 @@ import context from '../../context/context';
 import { firebase } from '../../api/firebase';
 import Moon from '../../assets/images/icons/moon-icon.svg';
 import { toast } from 'react-toastify';
-import SignUpPop from './SignUp';
+import SignUpPop from './SignUpPop';
 import MenuLinks from './MenuLinks';
+import ColorsBar from './ColorsBar';
 
 const Header = () => {
   const { setUser, user } = useContext(context);
@@ -17,50 +18,70 @@ const Header = () => {
         setUser(null);
       });
   };
+  const [openSearch, setOpenSearch] = useState(false);
 
   return (
-    <header className="w-full flex items-center bg-card-gray text-white fixed top-0 left-0 h-16 z-50 backdrop-filter backdrop-blur-lg bg-opacity-50">
-      <div className="comp-header w-full flex px-4 flex justify-between items-center container mx-auto">
-        <NavLink to="/" exact className="lg:hidden">
-          <div className="flex text-3xl font-black items-center">
-            <Moon className="lg:hidden h-6 text-white mr-2" />
-            NP
-          </div>
-        </NavLink>
-        <MenuLinks className="hidden lg:flex" />
-        <div className="flex items-center gap-2">
-          {!user ? (
-            <>
-              <button
-                className="py-1 px-2 my-auto rounded-lg bg-gradient-to-r from-button-green to-button-blue text-black text-xs focus:outline-none lg:text-sm"
-                onClick={() => {
-                  toast.dark('Please login to add palettes', {
-                    position: toast.POSITION.BOTTOM_RIGHT,
-                  });
-                }}
-              >
-                + <span className="hidden lg:inline">Add Palette</span>
-              </button>
-              <NavLink to="/signin" activeClassName="text-white ">
-                Sign-In / Log-In
-              </NavLink>
-            </>
-          ) : (
-            <div className="flex items-center">
-              <NavLink
-                to={'/create'}
-                className="h-8 w-8 leading-8 text-center text-3xl px-2 font-bold mr-2 lg:w-auto lg:h-auto lg:py-1 my-auto rounded-lg bg-gradient-to-r from-button-green to-button-blue text-black lg:font-normal lg:text-sm"
-              >
-                <span className="flex justify-center items-center">+</span>
-                <span className="hidden lg:inline">Add Palette</span>
-              </NavLink>
-              <SignUpPop signOut={signOut} user={user}>
-                <MenuLinks className="flex lg:hidden" />
-              </SignUpPop>
+    <header className="flex flex-col bg-card-gray text-white fixed top-0 left-0 z-50 backdrop-filter backdrop-blur-lg bg-opacity-50 w-full">
+      <div className="w-full flex items-center h-16 container mx-auto">
+        <div className="comp-header w-full flex px-4 flex justify-between items-center">
+          <NavLink to="/" exact className="lg:hidden">
+            <div className="flex text-3xl font-black items-center">
+              <Moon className="lg:hidden h-6 text-white mr-2" />
+              NP
             </div>
-          )}
+          </NavLink>
+          <MenuLinks className="hidden lg:flex" />
+          <div className="flex items-center gap-2">
+            <button
+              onClick={() => setOpenSearch(!openSearch)}
+              className="py-1 px-2 my-auto rounded-lg bg-gradient-to-r from-button-green to-button-blue text-black text-xs focus:outline-none lg:text-sm"
+            >
+              Search
+            </button>
+            {!user ? (
+              <>
+                <button
+                  className="py-1 px-2 my-auto rounded-lg bg-gradient-to-r from-button-green to-button-blue text-black text-xs focus:outline-none lg:text-sm"
+                  onClick={() => {
+                    toast.dark('Please login to add palettes', {
+                      position: toast.POSITION.BOTTOM_RIGHT,
+                    });
+                  }}
+                >
+                  + <span className="hidden lg:inline">Add Palette</span>
+                </button>
+                <NavLink to="/signin" activeClassName="text-white ">
+                  Sign-In / Log-In
+                </NavLink>
+              </>
+            ) : (
+              <>
+                <NavLink
+                  to={'/create'}
+                  className="h-8 w-8 leading-8 text-center text-3xl px-2 font-bold mr-2 lg:w-auto lg:h-auto lg:py-1 my-auto rounded-lg bg-gradient-to-r from-button-green to-button-blue text-black lg:font-normal lg:text-sm"
+                >
+                  <span className="flex justify-center items-center lg:inline">
+                    +
+                  </span>
+                  <span className="hidden lg:inline ml-2">Add Palette</span>
+                </NavLink>
+                <SignUpPop signOut={signOut} user={user}>
+                  <MenuLinks className="flex lg:hidden" />
+                </SignUpPop>
+              </>
+            )}
+          </div>
         </div>
       </div>
+      <ColorsBar
+        className={[
+          'container mx-auto',
+          'transform transition-all ease-linear duration-300',
+          openSearch ? 'h-80 lg:h-10 opacity-100' : 'h-0 opacity-0',
+        ]
+          .filter(Boolean)
+          .join(' ')}
+      />
     </header>
   );
 };

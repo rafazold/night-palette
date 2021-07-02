@@ -13,9 +13,7 @@ const ColorPicker = ({
 
   return (
     <div
-      className={['comp-color-picker absolute w-min', className]
-        .filter(Boolean)
-        .join(' ')}
+      className={['comp-color-picker', className].filter(Boolean).join(' ')}
       {...props}
     >
       {edit && (
