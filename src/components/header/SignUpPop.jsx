@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import User from '../../assets/images/icons/user-Icon.svg';
 import Popup from '../shared/Popup';
 
-const SignUpPop = ({ user, signOut, opacity, children }) => {
+const SignUpPop = ({ user, signOut, children }) => {
   const [openSignUp, setOpenSignUp] = useState(false);
   return (
     <Popup
