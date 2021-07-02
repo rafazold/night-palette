@@ -1,5 +1,5 @@
-import React, { useEffect, useContext, useState, useRef } from 'react';
-import { useLocation, useHistory, NavLink } from 'react-router-dom';
+import React, { useContext, useState, useRef } from 'react';
+import { NavLink } from 'react-router-dom';
 import context from '../../context/context';
 import { firebase } from '../../api/firebase';
 import Moon from '../../assets/images/icons/moon-icon.svg';
@@ -74,6 +74,7 @@ const Header = () => {
         </div>
       </div>
       <ColorsBar
+        handleShow={setOpenSearch}
         className={[
           'container mx-auto',
           'transform transition-all ease-linear duration-300',

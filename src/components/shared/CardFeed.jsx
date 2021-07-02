@@ -6,9 +6,10 @@ import {
   getPalettesByCreationTime,
   getPalettesByLikes,
   getPalettesByUser,
+  getPalettesBySearch,
 } from '../../api/api';
 
-const CardFeed = ({ className, ...props }) => {
+const CardFeed = ({ searchParam, className, ...props }) => {
   const [rows, setRows] = useState([]);
   const [palettes, setPalettes] = useState(null);
   const { activeFilter, user } = useContext(context);
@@ -26,8 +27,16 @@ const CardFeed = ({ className, ...props }) => {
       case 'personal':
         unsubscribe = getPalettesByUser(setPalettes, user.uid);
         return () => unsubscribe();
+      case 'search':
+        getPalettesBySearch(searchParam).then((cards) => {
+          setPalettes(cards);
+        });
+        break;
+      default:
+        unsubscribe = getPalettesByCreationTime(setPalettes);
+        return () => unsubscribe();
     }
-  }, [activeFilter]);
+  }, [activeFilter, searchParam]);
 
   useEffect(() => {
     setRows(groupArray(palettes, 5));
