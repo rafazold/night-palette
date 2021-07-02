@@ -2,6 +2,7 @@ import app from 'firebase/app';
 import 'firebase/database';
 import 'firebase/firestore';
 import firebase from 'firebase';
+import nearestColors from '../assets/nearestColorsGuide.json';
 
 const db = app.firestore();
 const palettes = db.collection('palettes');
@@ -39,6 +40,21 @@ export const getPalettesByUser = (callBack, userId) => {
 export const getPaletteById = async (id) => {
   return await palettes
     .where('id', '==', id)
+    .get()
+    .then((snap) => {
+      let docs = [];
+      snap.forEach((doc) => {
+        docs.push(doc.data());
+      });
+      return docs;
+    })
+    .catch((err) => console.log(err));
+};
+
+export const getPalettesBySearch = async (hex) => {
+  const nearestColor = require('nearest-color').from(nearestColors);
+  return await palettes
+    .where(`nearestColors.${nearestColor(hex).value}`, '==', true)
     .get()
     .then((snap) => {
       let docs = [];

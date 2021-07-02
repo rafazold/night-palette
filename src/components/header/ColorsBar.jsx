@@ -4,23 +4,27 @@ import ColorPicker from '../create/createCard/ColorPicker';
 import useOnClickAway from '../../hooks/clickAway';
 import { useHistory } from 'react-router-dom';
 
-const ColorsBar = ({ show, className, ...props }) => {
+const ColorsBar = ({ handleShow, className, ...props }) => {
   const [searchHex, setSearchHex] = useState(false);
   const [selectedColor, setSelectedColor] = useState(null);
   const handleChangeColor = (e) => {
     setSelectedColor(e);
   };
   const history = useHistory();
-  const ref = useRef();
-  useOnClickAway(ref, (e) => {
+  const pickerRef = useRef();
+  useOnClickAway(pickerRef, (e) => {
     !e.target.getAttribute('data-searchable') && setSearchHex(false);
   });
+  const barRef = useRef();
+  useOnClickAway(barRef, () => handleShow(false));
   const handleSearch = () => {
-    selectedColor && history.push(`/s/${selectedColor}`);
+    handleShow(false);
+    selectedColor && history.push(`/s/${selectedColor.replaceAll('#', '')}`);
   };
 
   return (
     <div
+      ref={barRef}
       className={[
         'comp-colors-bar',
         'flex',
@@ -62,7 +66,7 @@ const ColorsBar = ({ show, className, ...props }) => {
         </button>
         {searchHex && (
           <div
-            ref={ref}
+            ref={pickerRef}
             className="absolute top-10 right-8 bg-card-gray rounded-xl px-4 pt-4 backdrop-filter backdrop-blur-lg bg-opacity-50"
           >
             <ColorPicker
