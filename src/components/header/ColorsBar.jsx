@@ -78,7 +78,7 @@ const ColorsBar = ({ handleShow, className, ...props }) => {
                 disabled={!selectedColor}
                 onClick={handleSearch}
                 className={[
-                  'px-2',
+                  'py-2 px-4',
                   'my-2',
                   'rounded-lg',
                   'bg-gradient-to-r',

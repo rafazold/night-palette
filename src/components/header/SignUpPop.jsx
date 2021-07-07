@@ -40,7 +40,8 @@ const SignUpPop = ({ user, signOut, children }) => {
       <div className="lg:hidden text-base font-medium px-6 py-4 bg-card-gray lg:bg-opacity-70 rounded-md text-light-gray">
         {children}
         <div className="mt-4 text-xs flex underline gap-4">
-          <button onMouseDown={signOut}>log out</button>
+          <button onMouseDown={() => signOut()}>log out</button>
+          {/*<button onMouseDown={signOut}>log out</button>*/}
           <a href="mailto:test@example.com">Contact Us</a>
         </div>
       </div>
