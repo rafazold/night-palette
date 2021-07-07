@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14.883 14.877">
+    <defs>
+        <style>
+            .cls-1{fill:currentColor}
+        </style>
+    </defs>
+    <g id="search" transform="translate(0 -0.084)">
+        <g id="search_1_" transform="translate(0 0.084)">
+            <path id="Path_6" d="M64.7 13.1a6.509 6.509 0 1 1 6.509-6.509A6.509 6.509 0 0 1 64.7 13.1zm0-11.158a4.649 4.649 0 1 0 4.649 4.649A4.649 4.649 0 0 0 64.7 1.944z" class="cls-1" transform="translate(-56.329 -0.084)"/>
+            <path id="Path_7" d="M.935 302.617a.93.93 0 0 1-.666-1.585l.005-.005 3.5-3.5a.95.95 0 0 1 1.32 1.367l-3.5 3.45a.93.93 0 0 1-.66.27z" class="cls-1" transform="translate(0 -287.74)"/>
+        </g>
+    </g>
+</svg>

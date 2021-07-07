@@ -21,6 +21,8 @@ module.exports = {
       },
       boxShadow: {
         main: '0 3px 20px 0 rgba(0, 0, 0, 0.45)',
+        white: '0 3px 20px 0 rgba(255,255,255, 0.45)',
+        turquoise: '0 3px 20px 0 rgba(0, 255, 177, 0.45)',
       },
       fontFamily: {
         primary: ['Montserrat', 'sans-serif'],
