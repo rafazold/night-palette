@@ -1,8 +1,9 @@
 import React, { useContext, useState, useRef } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import context from '../../context/context';
 import { firebase } from '../../api/firebase';
 import Moon from '../../assets/images/icons/moon-icon.svg';
+import SearchIcon from '../../assets/images/icons/search-icon.svg';
 import { toast } from 'react-toastify';
 import SignUpPop from './SignUpPop';
 import MenuLinks from './MenuLinks';
@@ -19,6 +20,7 @@ const Header = () => {
       });
   };
   const [openSearch, setOpenSearch] = useState(false);
+  let location = useLocation();
 
   return (
     <header className="flex flex-col bg-card-gray text-white fixed top-0 left-0 z-50 backdrop-filter backdrop-blur-lg bg-opacity-50 w-full">
@@ -34,21 +36,41 @@ const Header = () => {
           <div className="flex items-center gap-2">
             <button
               onClick={() => setOpenSearch(!openSearch)}
-              className="py-1 px-2 my-auto rounded-lg bg-gradient-to-r from-button-green to-button-blue text-black text-xs focus:outline-none lg:text-sm"
+              className={[
+                'py-2',
+                'lg:py-1',
+                'px-2',
+                'my-auto',
+                'rounded-lg',
+                'bg-gradient-to-r',
+                'from-button-green',
+                'to-button-blue',
+                'text-black',
+                'text-xs',
+                'focus:outline-none',
+                'lg:text-sm',
+                location.pathname.split('/')[1] === 's' && 'shadow-turquoise',
+              ]
+                .filter(Boolean)
+                .join(' ')}
             >
-              Search
+              <span className="hidden lg:block">Search</span>
+              <SearchIcon className="h-4 w-4 text-black lg:hidden" />
             </button>
             {!user ? (
               <>
                 <button
-                  className="py-1 px-2 my-auto rounded-lg bg-gradient-to-r from-button-green to-button-blue text-black text-xs focus:outline-none lg:text-sm"
+                  className="h-8 w-8 leading-8 text-center text-3xl px-2 font-bold mr-2 lg:w-auto lg:h-auto lg:py-1 my-auto rounded-lg bg-gradient-to-r from-button-green to-button-blue text-black lg:font-normal lg:text-smc"
                   onClick={() => {
                     toast.dark('Please login to add palettes', {
                       position: toast.POSITION.BOTTOM_RIGHT,
                     });
                   }}
                 >
-                  + <span className="hidden lg:inline">Add Palette</span>
+                  <span className="flex justify-center items-center lg:inline">
+                    +
+                  </span>
+                  <span className="hidden lg:inline">Add Palette</span>
                 </button>
                 <NavLink to="/signin" activeClassName="text-white ">
                   Sign-In / Log-In
@@ -59,6 +81,11 @@ const Header = () => {
                 <NavLink
                   to={'/create'}
                   className="h-8 w-8 leading-8 text-center text-3xl px-2 font-bold mr-2 lg:w-auto lg:h-auto lg:py-1 my-auto rounded-lg bg-gradient-to-r from-button-green to-button-blue text-black lg:font-normal lg:text-sm"
+                  activeClassName={[
+                    location.pathname === '/create' && 'shadow-turquoise',
+                  ]
+                    .filter(Boolean)
+                    .join(' ')}
                 >
                   <span className="flex justify-center items-center lg:inline">
                     +
