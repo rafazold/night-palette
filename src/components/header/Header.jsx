@@ -60,7 +60,7 @@ const Header = () => {
             {!user ? (
               <>
                 <button
-                  className="h-8 w-8 leading-8 text-center text-3xl px-2 font-bold mr-2 lg:w-auto lg:h-auto lg:py-1 my-auto rounded-lg bg-gradient-to-r from-button-green to-button-blue text-black lg:font-normal lg:text-smc"
+                  className="h-8 w-8 leading-8 text-center text-3xl px-2 font-bold mr-2 lg:w-auto lg:h-auto lg:py-1 my-auto rounded-lg bg-gradient-to-r from-button-green to-button-blue text-black lg:font-normal lg:text-sm"
                   onClick={() => {
                     toast.dark('Please login to add palettes', {
                       position: toast.POSITION.BOTTOM_RIGHT,
