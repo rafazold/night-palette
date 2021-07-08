@@ -35,7 +35,12 @@ const Header = () => {
           <MenuLinks className="hidden lg:flex" />
           <div className="flex items-center gap-2">
             <button
-              onClick={() => setOpenSearch(!openSearch)}
+              data-button="true"
+              onClick={() => {
+                setOpenSearch((open) => {
+                  return !open;
+                });
+              }}
               className={[
                 'py-2',
                 'lg:py-1',
@@ -55,7 +60,10 @@ const Header = () => {
                 .join(' ')}
             >
               <span className="hidden lg:block">Search</span>
-              <SearchIcon className="h-4 w-4 text-black lg:hidden" />
+              <SearchIcon
+                data-button="true"
+                className="h-4 w-4 text-black lg:hidden"
+              />
             </button>
             {!user ? (
               <>
@@ -105,6 +113,7 @@ const Header = () => {
         className={[
           'container mx-auto',
           'transform transition-all ease-linear duration-300',
+          'overflow-hidden lg:overflow-visible',
           openSearch ? 'h-80 lg:h-10 opacity-100' : 'h-0 opacity-0',
         ]
           .filter(Boolean)

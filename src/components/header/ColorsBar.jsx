@@ -16,7 +16,9 @@ const ColorsBar = ({ handleShow, className, ...props }) => {
     !e.target.getAttribute('data-searchable') && setSearchHex(false);
   });
   const barRef = useRef();
-  useOnClickAway(barRef, () => handleShow(false));
+  useOnClickAway(barRef, (e) => {
+    !e.target.getAttribute('data-button') && handleShow(false);
+  });
   const handleSearch = () => {
     handleShow(false);
     selectedColor && history.push(`/s/${selectedColor.replaceAll('#', '')}`);
@@ -28,15 +30,16 @@ const ColorsBar = ({ handleShow, className, ...props }) => {
       className={[
         'comp-colors-bar',
         'flex',
-        'justify-between',
+        'lg:justify-between',
         'container mx-auto px-4',
+        'flex-col lg:flex-row',
         className,
       ]
         .filter(Boolean)
         .join(' ')}
       {...props}
     >
-      <div className="flex flex-wrap">
+      <div className="flex flex-wrap relative">
         {Object.keys(nearestColors).map((key) => (
           <button
             onClick={() => {
@@ -44,17 +47,17 @@ const ColorsBar = ({ handleShow, className, ...props }) => {
               setSearchHex(true);
             }}
             key={key}
-            className="flex items-center mb-8"
+            className="flex items-center mb-4 lg:mb-8 w-1/4 lg:w-auto"
           >
             <div
               style={{ backgroundColor: nearestColors[key] }}
-              className="w-4 h-4 mx-2 rounded-sm border border-light-gray border-opacity-40"
+              className="w-4 h-4 mx-2 rounded-sm border border-light-gray border-opacity-40 flex-shrink-0"
             />
             <div className="text-white">{key}</div>
           </button>
         ))}
       </div>
-      <div className="relative">
+      <div className="lg:relative">
         <button
           data-searchable="true"
           onClick={() => {
@@ -67,7 +70,7 @@ const ColorsBar = ({ handleShow, className, ...props }) => {
         {searchHex && (
           <div
             ref={pickerRef}
-            className="absolute top-10 right-8 bg-card-gray rounded-xl px-4 pt-4 backdrop-filter backdrop-blur-lg bg-opacity-50"
+            className="absolute top-0 lg:top-10 right-8 bg-card-gray rounded-xl px-4 pt-4 backdrop-filter backdrop-blur-lg bg-opacity-50"
           >
             <ColorPicker
               hex={selectedColor || ''}
