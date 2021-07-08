@@ -3,6 +3,7 @@ import 'firebase/database';
 import 'firebase/firestore';
 import firebase from 'firebase';
 import nearestColors from '../assets/nearestColorsGuide.json';
+const nearestColor = require('nearest-color').from(nearestColors);
 
 const db = app.firestore();
 const palettes = db.collection('palettes');
@@ -52,7 +53,6 @@ export const getPaletteById = async (id) => {
 };
 
 export const getPalettesBySearch = async (hex) => {
-  const nearestColor = require('nearest-color').from(nearestColors);
   return await palettes
     .where(`nearestColors.${nearestColor(hex).value}`, '==', true)
     .get()
