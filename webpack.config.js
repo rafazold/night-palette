@@ -47,8 +47,10 @@ module.exports = {
       inject: true,
       meta: {
         viewport: 'width=device-width, initial-scale=1, shrink-to-fit=no',
+        description: 'Color palettes in dark mode',
       },
       title: 'Night Palette',
+      favicon: './src/assets/favicon.ico',
     }),
   ],
 };
