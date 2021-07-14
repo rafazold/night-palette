@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 38 38">
+  <defs>
+    <linearGradient id="linear-gradient" x1=".806" x2=".114" y1="-.046" y2=".922" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#161616"/>
+      <stop offset="1" stop-color="#dddddd"/>
+    </linearGradient>
+    <style>
+      .cls-2{fill:#191919}
+    </style>
+  </defs>
+  <g id="User-Icon" transform="translate(-1866 -11)">
+    <rect id="Add_Palette_button" width="38" height="38" fill="url(#linear-gradient)" rx="19" transform="translate(1866 11)"/>
+    <g id="user" transform="translate(1848.583 17.049)">
+      <g id="Group_45" transform="translate(24.165)">
+        <g id="Group_44">
+          <path id="Path_154122" d="M118.036 14.489a7.244 7.244 0 1 0-7.244-7.244 7.264 7.264 0 0 0 7.244 7.244z" class="cls-2" transform="translate(-105.547)"/>
+          <path id="Path_154123" d="M49.087 253.111a6.754 6.754 0 0 0-.728-1.329 9 9 0 0 0-6.232-3.923 1.333 1.333 0 0 0-.917.221 7.722 7.722 0 0 1-9.111 0 1.187 1.187 0 0 0-.917-.221 8.939 8.939 0 0 0-6.232 3.923 7.787 7.787 0 0 0-.728 1.329.673.673 0 0 0 .032.6 12.622 12.622 0 0 0 .854 1.265 12.022 12.022 0 0 0 1.455 1.645 18.973 18.973 0 0 0 1.455 1.265 14.426 14.426 0 0 0 17.209 0 13.908 13.908 0 0 0 1.455-1.265 14.607 14.607 0 0 0 1.455-1.645 11.092 11.092 0 0 0 .854-1.265.54.54 0 0 0 .096-.6z" class="cls-2" transform="translate(-24.165 -232.834)"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

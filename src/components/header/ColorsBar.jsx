@@ -46,6 +46,7 @@ const ColorsBar = ({ handleShow, show, className, ...props }) => {
         {Object.keys(nearestColors).map((key) => (
           <button
             onClick={() => {
+              handleShow(false);
               history.push(`/s/${nearestColors[key].replaceAll('#', '')}`);
             }}
             key={key}

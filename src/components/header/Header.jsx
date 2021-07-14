@@ -8,7 +8,7 @@ import { toast } from 'react-toastify';
 import SignUpPop from './SignUpPop';
 import MenuLinks from './MenuLinks';
 import ColorsBar from './ColorsBar';
-import UserIcon from '../../assets/images/icons/user-Icon.svg';
+import UserIcon from '../../assets/images/icons/user-icon-gray.svg';
 
 const Header = () => {
   const { setUser, user } = useContext(context);
