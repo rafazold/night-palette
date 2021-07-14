@@ -4,7 +4,7 @@ import ColorPicker from '../create/createCard/ColorPicker';
 import useOnClickAway from '../../hooks/clickAway';
 import { useHistory } from 'react-router-dom';
 
-const ColorsBar = ({ handleShow, className, ...props }) => {
+const ColorsBar = ({ handleShow, show, className, ...props }) => {
   const [searchHex, setSearchHex] = useState(false);
   const [selectedColor, setSelectedColor] = useState(null);
   const handleChangeColor = (e) => {
@@ -29,8 +29,8 @@ const ColorsBar = ({ handleShow, className, ...props }) => {
       ref={barRef}
       className={[
         'comp-colors-bar',
-        'max-h-80',
-        searchHex && 'h-80',
+        'max-h-96',
+        searchHex && show && 'h-80 lg:h-96',
         'flex',
         'lg:justify-between',
         'container mx-auto px-4',
@@ -42,12 +42,11 @@ const ColorsBar = ({ handleShow, className, ...props }) => {
         .join(' ')}
       {...props}
     >
-      <div className="flex flex-wrap relative">
+      <div className="flex flex-wrap relative lg:h-10">
         {Object.keys(nearestColors).map((key) => (
           <button
             onClick={() => {
-              handleChangeColor(nearestColors[key]);
-              setSearchHex(true);
+              history.push(`/s/${nearestColors[key].replaceAll('#', '')}`);
             }}
             key={key}
             className="flex items-center mb-4 lg:mb-8 w-1/4 lg:w-auto"
