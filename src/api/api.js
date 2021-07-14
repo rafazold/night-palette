@@ -28,14 +28,17 @@ export const getPalettesByLikes = (callBack) => {
   });
 };
 
-export const getPalettesByUser = (callBack, userId) => {
-  return palettes.where('userId', '==', userId).onSnapshot((snap) => {
-    let pal = [];
-    snap.docs.map((doc) => {
-      pal.push(doc.data());
+export const getPalettesByUser = async (userId) => {
+  return await palettes
+    .where('userId', '==', userId)
+    .get()
+    .then((snap) => {
+      let docs = [];
+      snap.docs.map((doc) => {
+        docs.push(doc.data());
+      });
+      return docs;
     });
-    callBack(pal);
-  });
 };
 
 export const getPaletteById = async (id) => {

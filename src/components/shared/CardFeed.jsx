@@ -8,6 +8,7 @@ import {
   getPalettesByUser,
   getPalettesBySearch,
 } from '../../api/api';
+import { sortPalettesByKey } from '../../helpers/helpers';
 
 const CardFeed = ({ searchParam, className, ...props }) => {
   const [rows, setRows] = useState([]);
@@ -25,11 +26,13 @@ const CardFeed = ({ searchParam, className, ...props }) => {
         unsubscribe = getPalettesByLikes(setPalettes);
         return () => unsubscribe();
       case 'personal':
-        unsubscribe = getPalettesByUser(setPalettes, user.uid);
-        return () => unsubscribe();
+        getPalettesByUser(user.uid).then((cards) => {
+          setPalettes(cards.sort(sortPalettesByKey('likesCount', 'desc')));
+        });
+        break;
       case 'search':
         getPalettesBySearch(searchParam).then((cards) => {
-          setPalettes(cards);
+          setPalettes(cards.sort(sortPalettesByKey('likesCount', 'desc')));
         });
         break;
       default:
