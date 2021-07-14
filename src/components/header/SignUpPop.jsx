@@ -4,17 +4,9 @@ import Popup from '../shared/Popup';
 
 const SignUpPop = ({ user, signOut, children }) => {
   const [openSignUp, setOpenSignUp] = useState(false);
-  const UserImage = (
-    <img
-      src={user.photoURL}
-      alt="user image"
-      className="w-8 h-8 rounded-full"
-      data-button="true"
-    />
-  );
   return (
     <Popup
-      buttonIcon={UserImage}
+      buttonIcon={<User className="w-8 h-8" />}
       open={openSignUp}
       handleOpen={setOpenSignUp}
       className="top-16 right-0 w-96"
@@ -41,7 +33,7 @@ const SignUpPop = ({ user, signOut, children }) => {
         <p>Have fun and be productive.</p>
         <div className="mt-4 text-xs flex underline gap-4">
           <button onClick={signOut}>log out</button>
-          <a href="mailto:test@example.com">Contact Us</a>
+          <a href="mailto:nightpalettecolors@gmail.com">Contact Us</a>
         </div>
       </div>
 
@@ -49,7 +41,7 @@ const SignUpPop = ({ user, signOut, children }) => {
         {children}
         <div className="mt-4 text-xs flex underline gap-4">
           <button onClick={signOut}>log out</button>
-          <a href="mailto:test@example.com">Contact Us</a>
+          <a href="mailto:nightpalettecolors@gmail.com">Contact Us</a>
         </div>
       </div>
     </Popup>
