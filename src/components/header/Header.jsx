@@ -113,11 +113,12 @@ const Header = () => {
       </div>
       <ColorsBar
         handleShow={setOpenSearch}
+        show={openSearch}
         className={[
           'container mx-auto',
-          'transform transition-all ease-linear duration-300',
+          'transform transition-all ease-linear duration-500',
           'overflow-hidden lg:overflow-visible',
-          openSearch ? 'lg:h-10 opacity-100 pb-10' : 'h-0 opacity-0',
+          openSearch ? 'opacity-100' : 'h-0 opacity-0',
         ]
           .filter(Boolean)
           .join(' ')}
