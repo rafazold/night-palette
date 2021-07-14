@@ -8,6 +8,7 @@ import { toast } from 'react-toastify';
 import SignUpPop from './SignUpPop';
 import MenuLinks from './MenuLinks';
 import ColorsBar from './ColorsBar';
+import UserIcon from '../../assets/images/icons/user-Icon.svg';
 
 const Header = () => {
   const { setUser, user } = useContext(context);
@@ -59,7 +60,9 @@ const Header = () => {
                 .filter(Boolean)
                 .join(' ')}
             >
-              <span className="hidden lg:block">Search</span>
+              <span data-button="true" className="hidden lg:block">
+                Search
+              </span>
               <SearchIcon
                 data-button="true"
                 className="h-4 w-4 text-black lg:hidden"
@@ -81,7 +84,7 @@ const Header = () => {
                   <span className="hidden lg:inline">Add Palette</span>
                 </button>
                 <NavLink to="/signin" activeClassName="text-white ">
-                  Sign-In / Log-In
+                  <UserIcon className="w-8 h-8" />
                 </NavLink>
               </>
             ) : (
@@ -114,7 +117,7 @@ const Header = () => {
           'container mx-auto',
           'transform transition-all ease-linear duration-300',
           'overflow-hidden lg:overflow-visible',
-          openSearch ? 'h-80 lg:h-10 opacity-100' : 'h-0 opacity-0',
+          openSearch ? 'lg:h-10 opacity-100 pb-10' : 'h-0 opacity-0',
         ]
           .filter(Boolean)
           .join(' ')}

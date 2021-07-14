@@ -29,10 +29,13 @@ const ColorsBar = ({ handleShow, className, ...props }) => {
       ref={barRef}
       className={[
         'comp-colors-bar',
+        'max-h-80',
+        searchHex && 'h-80',
         'flex',
         'lg:justify-between',
         'container mx-auto px-4',
         'flex-col lg:flex-row',
+        'items-start flex-wrap',
         className,
       ]
         .filter(Boolean)
@@ -57,13 +60,13 @@ const ColorsBar = ({ handleShow, className, ...props }) => {
           </button>
         ))}
       </div>
-      <div className="lg:relative">
+      <div className="lg:relative flex justify-center">
         <button
           data-searchable="true"
           onClick={() => {
             setSearchHex(!searchHex);
           }}
-          className="py-1 px-2 my-auto rounded-lg bg-gradient-to-r from-button-green to-button-blue text-black text-xs focus:outline-none lg:text-sm"
+          className="py-1 text-xl px-8 my-auto rounded-lg bg-gradient-to-r from-button-green to-button-blue text-black focus:outline-none lg:text-sm"
         >
           hex
         </button>
