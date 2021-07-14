@@ -4,9 +4,17 @@ import Popup from '../shared/Popup';
 
 const SignUpPop = ({ user, signOut, children }) => {
   const [openSignUp, setOpenSignUp] = useState(false);
+  const UserImage = (
+    <img
+      src={user.photoURL}
+      alt="user image"
+      className="w-8 h-8 rounded-full"
+      data-button="true"
+    />
+  );
   return (
     <Popup
-      buttonIcon={<User className="w-8 h-8" />}
+      buttonIcon={UserImage}
       open={openSignUp}
       handleOpen={setOpenSignUp}
       className="top-16 right-0 w-96"

@@ -10,11 +10,20 @@ const Popup = ({
   ...props
 }) => {
   const popRef = useRef();
-  useOnClickAway(popRef, () => handleOpen(false));
+  useOnClickAway(popRef, (e) => {
+    !e.target.getAttribute('data-button') && handleOpen(false);
+  });
 
   return (
     <div className="relative flex">
-      <button onClick={() => handleOpen(true)}>{buttonIcon}</button>
+      <button
+        data-button="true"
+        onClick={() => {
+          handleOpen(!open);
+        }}
+      >
+        {buttonIcon}
+      </button>
       {open && (
         <div
           ref={popRef}
