@@ -11,7 +11,7 @@ const Home = () => {
   }, []);
   return (
     <div className="comp-home bg-black text-white">
-      <div className="container m-auto text-light-gray w-4/5 lg:w-auto">
+      <div className="container m-auto text-light-gray">
         <h1 className="text-2xl pt-9">
           Dark Mode Color Palettes for Designers and Artists
         </h1>

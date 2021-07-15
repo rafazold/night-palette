@@ -3,6 +3,12 @@ import Card from './Card.jsx';
 import context from '../../context/context.js';
 
 const CardList = ({ list = [], type = 'D' }) => {
+  const width = {
+    1: 'lg:w-4/5',
+    2: 'lg:w-3/5',
+    3: 'lg:w-2/5',
+    4: 'lg:w-1/5',
+  };
   const { selectedCard, setSelectedCard } = useContext(context);
   const selectCard = (key, row, type) => {
     selectedCard['key'] === key
@@ -20,7 +26,16 @@ const CardList = ({ list = [], type = 'D' }) => {
         return (
           <div
             key={'R' + index + type}
-            className="comp-card-list flex flex-col lg:flex-row w-full mx-4"
+            className={[
+              'comp-card-list',
+              'flex',
+              'flex-col',
+              'justify-between',
+              'lg:flex-row',
+              'w-full',
+            ]
+              .filter(Boolean)
+              .join(' ')}
           >
             {row.map(({ id, colors, likes, createdAt }) => {
               return (
@@ -44,6 +59,13 @@ const CardList = ({ list = [], type = 'D' }) => {
                 />
               );
             })}
+            {row.length < 5 && (
+              <div
+                className={['hidden lg:block', width[row.length]]
+                  .filter(Boolean)
+                  .join(' ')}
+              />
+            )}
           </div>
         );
       })}
