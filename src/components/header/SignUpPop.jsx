@@ -6,7 +6,7 @@ const SignUpPop = ({ user, signOut, children }) => {
   const [openSignUp, setOpenSignUp] = useState(false);
   return (
     <Popup
-      buttonIcon={<User className="w-8 h-8" />}
+      buttonIcon={<User className="w-8 h-8" data-button="true" />}
       open={openSignUp}
       handleOpen={setOpenSignUp}
       className="top-16 right-0 w-96"
