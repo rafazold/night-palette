@@ -83,7 +83,11 @@ const Header = () => {
                   </span>
                   <span className="hidden lg:inline">Add Palette</span>
                 </button>
-                <NavLink to="/signin" activeClassName="text-white ">
+                <NavLink
+                  to="/signin"
+                  activeClassName="text-white "
+                  data-button="true"
+                >
                   <UserIcon className="w-8 h-8" />
                 </NavLink>
               </>
@@ -103,7 +107,7 @@ const Header = () => {
                   </span>
                   <span className="hidden lg:inline ml-2">Add Palette</span>
                 </NavLink>
-                <SignUpPop signOut={signOut} user={user}>
+                <SignUpPop signOut={signOut} user={user} data-button="true">
                   <MenuLinks className="flex lg:hidden" />
                 </SignUpPop>
               </>

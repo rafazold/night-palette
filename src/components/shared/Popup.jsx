@@ -11,7 +11,9 @@ const Popup = ({
 }) => {
   const popRef = useRef();
   useOnClickAway(popRef, (e) => {
-    !e.target.getAttribute('data-button') && handleOpen(false);
+    !e.target.getAttribute('data-button') &&
+      e.target.getAttribute('class') !== 'user-Icon_svg__cls-2' &&
+      handleOpen(false);
   });
 
   return (
