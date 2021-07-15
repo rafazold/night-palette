@@ -47,7 +47,7 @@ module.exports = {
       inject: true,
       meta: {
         viewport: 'width=device-width, initial-scale=1, shrink-to-fit=no',
-        description: 'Color palettes in dark mode',
+        description: 'Dark Mode Color Palettes for Designers and Artists',
       },
       title: 'Night Palette',
       favicon: './src/assets/favicon.ico',
