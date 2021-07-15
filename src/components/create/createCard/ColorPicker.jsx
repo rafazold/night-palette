@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { HexColorPicker, HexColorInput } from 'react-colorful';
 
 const ColorPicker = ({
@@ -10,6 +10,10 @@ const ColorPicker = ({
   ...props
 }) => {
   const [color, setColor] = useState(hex);
+
+  useEffect(() => {
+    setColor(hex);
+  }, [hex]);
 
   return (
     <div
