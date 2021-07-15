@@ -32,12 +32,12 @@ const Card = ({
       });
     }
     !isLiked
-      ? addLike(paletteId, user.uid).then(() => {
-          console.log('added ====> like');
+      ? addLike(paletteId, user.uid).catch((e) => {
+          console.log(e);
         })
-      : removeLike(paletteId, user.uid).then(() =>
-          console.log('removed ====> like')
-        );
+      : removeLike(paletteId, user.uid).catch((e) => {
+          console.log(e);
+        });
   };
   return (
     <div
