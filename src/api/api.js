@@ -40,6 +40,19 @@ export const getPalettesByUser = async (userId) => {
       return docs;
     });
 };
+export const getLikedPalettes = async (userId) => {
+  return await palettes
+    .where(`likes.${userId}`, '==', true)
+    .get()
+    .then((snap) => {
+      let docs = [];
+      snap.docs.map((doc) => {
+        docs.push(doc.data());
+      });
+      return docs;
+    })
+    .catch((err) => console.log(err));
+};
 
 export const getPaletteById = async (id) => {
   return await palettes

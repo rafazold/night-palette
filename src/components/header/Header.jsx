@@ -24,9 +24,9 @@ const Header = () => {
   let location = useLocation();
 
   return (
-    <header className="flex flex-col bg-card-gray text-white fixed top-0 left-0 z-50 backdrop-filter backdrop-blur-lg bg-opacity-50 w-full">
-      <div className="w-full flex items-center h-16 container mx-auto">
-        <div className="comp-header w-full px-4 flex justify-between items-center">
+    <header className="comp-header flex flex-col bg-card-gray text-white fixed top-0 left-0 z-50 backdrop-filter backdrop-blur-lg bg-opacity-50 w-full">
+      <div className="w-full flex items-center py-4 h-16 container mx-auto">
+        <div className="w-full px-4 flex justify-between items-center">
           <NavLink to="/" exact className="lg:hidden">
             <div className="flex text-3xl font-black items-center">
               <Moon className="lg:hidden h-6 text-white mr-2" />
