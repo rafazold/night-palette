@@ -4,9 +4,10 @@ import context from '../../context/context';
 import { Link } from 'react-router-dom';
 import CardPlaceholder from '../shared/CardPlaceholder';
 import { checkHasOwnPalettes } from '../../api/api';
+import Button from '../shared/Button';
 
 const Personal = () => {
-  const { setActiveFilter, user } = useContext(context);
+  const { setActiveFilter, activeFilter, user } = useContext(context);
   const [hasPalettes, setHasPalettes] = useState(false);
   useEffect(() => {
     user &&
@@ -16,10 +17,30 @@ const Personal = () => {
   }, [user]);
 
   useEffect(() => {
-    hasPalettes && setActiveFilter('personal');
+    hasPalettes && setActiveFilter('created');
   }, [hasPalettes]);
   return (
     <div className="comp-personal bg-black text-white pt-12">
+      <div className="flex my-8">
+        <span className="text-3xl">My Palettes:</span>
+        <Button
+          onClick={() => {
+            setActiveFilter('liked');
+          }}
+          secondary={activeFilter !== 'liked'}
+          className="mx-4"
+        >
+          liked
+        </Button>
+        <Button
+          onClick={() => {
+            setActiveFilter('created');
+          }}
+          secondary={activeFilter !== 'created'}
+        >
+          created
+        </Button>
+      </div>
       {(!user || !hasPalettes) && (
         <>
           <div className="flex justify-between">
@@ -42,7 +63,9 @@ const Personal = () => {
           </div>
         </>
       )}
-      {user && hasPalettes && <CardFeed />}
+      {user && hasPalettes && (
+        <CardFeed sort={{ sortBy: 'likesCount', direction: 'desc' }} />
+      )}
     </div>
   );
 };
