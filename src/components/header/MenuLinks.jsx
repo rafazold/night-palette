@@ -12,7 +12,7 @@ const MenuLinks = ({ className }) => {
   return (
     <ul
       className={[
-        'flex-col lg:flex-row lg:space-x-4 font-light max-w-screen-xl my-auto text-2xl lg:text-base',
+        'flex-col lg:flex-row lg:space-x-10 font-light max-w-screen-xl my-auto text-2xl lg:text-base',
         className,
       ]
         .filter(Boolean)
