@@ -13,7 +13,6 @@ import Popup from './Popup';
 import Button from './Button';
 //TODO: remove when changed to observer
 import { useLocation } from 'react-router-dom';
-const location = useLocation();
 
 const Card = ({
   palette,
@@ -54,6 +53,8 @@ const Card = ({
     deletePalette(paletteId).catch();
     location.pathname === 'personal' && setNeedRefresh(true);
   };
+  //TODO: remove when change to observer
+  const location = useLocation();
 
   return (
     <div
@@ -67,7 +68,7 @@ const Card = ({
         .join(' ')}
       {...props}
     >
-      {userId === user.uid && (
+      {user && userId === user.uid && (
         <Popup
           buttonIcon={<DeleteIcon className="w-7 h-7" />}
           buttonClassName="absolute top-0 right-0 z-10"
