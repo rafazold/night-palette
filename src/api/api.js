@@ -97,6 +97,13 @@ export const setPalette = async ({ userId, id, colors, type }) => {
     .catch((err) => console.log(err));
 };
 
+export const deletePalette = async (id) => {
+  return await palettes
+    .doc(id)
+    .delete()
+    .catch((err) => console.log(err));
+};
+
 export const checkAvailable = async (id) => {
   return await palettes
     .where('id', '==', id)

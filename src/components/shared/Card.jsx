@@ -2,12 +2,18 @@ import React, { useContext, useRef, useState } from 'react';
 import Palette from './Palette.jsx';
 import Star from '../../assets/images/icons/star.svg';
 import ShareIcon from '../../assets/images/icons/share-Icon.svg';
+import DeleteIcon from '../../assets/images/icons/delete-Icon.svg';
 import context from '../../context/context';
-import { addLike, removeLike } from '../../api/api';
+import { addLike, removeLike, deletePalette } from '../../api/api';
 import { toast } from 'react-toastify';
 import moment from 'moment';
 import { EmailIcon, WhatsappShareButton, WhatsappIcon } from 'react-share';
 import useOnClickAway from '../../hooks/clickAway';
+import Popup from './Popup';
+import Button from './Button';
+//TODO: remove when changed to observer
+import { useLocation } from 'react-router-dom';
+const location = useLocation();
 
 const Card = ({
   palette,
@@ -17,11 +23,13 @@ const Card = ({
   likes,
   creationTime,
   className,
+  userId,
   ...props
 }) => {
-  const { user } = useContext(context);
+  const { user, setNeedRefresh } = useContext(context);
   const isLiked = user ? likes.hasOwnProperty(user.uid) : false;
   const [sharing, setSharing] = useState(false);
+  const [openDelete, setOpenDelete] = useState(false);
   const ref = useRef();
   useOnClickAway(ref, () => setSharing(false));
   const handleLike = (e, paletteId) => {
@@ -38,11 +46,19 @@ const Card = ({
       : removeLike(paletteId, user.uid).catch((e) => {
           console.log(e);
         });
+    setNeedRefresh(true);
   };
+  const handleDelete = (e, paletteId) => {
+    e.stopPropagation();
+    e.preventDefault();
+    deletePalette(paletteId).catch();
+    location.pathname === 'personal' && setNeedRefresh(true);
+  };
+
   return (
     <div
       className={[
-        'px-4 pt-3 bg-card-gray shadow-main rounded-md mb-20 cursor-pointer hide-tap',
+        'px-4 pt-3 bg-card-gray shadow-main rounded-md mb-20 cursor-pointer hide-tap relative',
         expanded ? 'lg:max-w-full' : 'lg:max-w-17%',
         expanded ? 'lg:w-2/3' : shrink ? 'lg:w-1/5' : 'lg:w-64',
         className,
@@ -51,6 +67,39 @@ const Card = ({
         .join(' ')}
       {...props}
     >
+      {userId === user.uid && (
+        <Popup
+          buttonIcon={<DeleteIcon className="w-7 h-7" />}
+          buttonClassName="absolute top-0 right-0 z-10"
+          open={openDelete}
+          handleOpen={setOpenDelete}
+          className="z-10 top-16 left-1/2 transform -translate-x-1/2 w-10/12 lg:w-auto"
+        >
+          <div className="flex flex-col justify-between p-4 rounded bg-card-gray backdrop-filter backdrop-blur-lg bg-opacity-50">
+            <p>Are you sure you want to delete this palette?</p>
+            <p>You cannot undo this action</p>
+            <div className="flex justify-center mt-10">
+              <Button
+                onClick={(e) => handleDelete(e, id)}
+                secondary
+                className="mr-2"
+              >
+                Delete
+              </Button>
+              <Button
+                className="ml-2"
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  setOpenDelete(false);
+                }}
+              >
+                Cancel
+              </Button>
+            </div>
+          </div>
+        </Popup>
+      )}
       <Palette
         expanded={expanded}
         colors={palette}

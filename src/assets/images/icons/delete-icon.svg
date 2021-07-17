@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 33 33">
+  <g id="Delete" transform="translate(-630 -1297)">
+    <rect id="Rectangle_2228" data-name="Rectangle 2228" width="33" height="33" rx="6" transform="translate(630 1297)" fill="#090909"/>
+    <path id="Path_154242" data-name="Path 154242" d="M2.439,1.425H13.01c1.347,0,2.439-.147,2.439,1.063L12.872,12.715a2.325,2.325,0,0,1-2.439,2.191H4.879a2.325,2.325,0,0,1-2.439-2.191L0,2.488C0,1.278,1.092,1.425,2.439,1.425Z" transform="translate(638.775 1308.728)" fill="#6e6e6e"/>
+    <g id="Group_22041" data-name="Group 22041">
+      <path id="Path_154243" data-name="Path 154243" d="M16.7,5.813,14.153,1.851H2.775L.538,5.813H16.7Z" transform="translate(637.882 1303.1)" fill="#6e6e6e"/>
+      <g id="Ellipse_1953" data-name="Ellipse 1953" transform="translate(642 1301)" fill="none" stroke="#6e6e6e" stroke-width="2">
+        <ellipse cx="4.5" cy="3.5" rx="4.5" ry="3.5" stroke="none"/>
+        <ellipse cx="4.5" cy="3.5" rx="3.5" ry="2.5" fill="none"/>
+      </g>
+    </g>
+    <g id="Group_22042" data-name="Group 22042">
+      <line id="Line_820" data-name="Line 820" y2="8.485" transform="translate(649.5 1313.501) rotate(45)" fill="none" stroke="#090909" stroke-linecap="round" stroke-width="1.5"/>
+      <line id="Line_821" data-name="Line 821" y2="8.485" transform="translate(649.5 1319.5) rotate(135)" fill="none" stroke="#090909" stroke-linecap="round" stroke-width="1.5"/>
+    </g>
+  </g>
+</svg>

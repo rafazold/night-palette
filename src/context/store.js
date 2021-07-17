@@ -5,6 +5,7 @@ export default () => {
   const [selectedCard, setSelectedCard] = useState('');
   const [user, setUser] = useState(null);
   const [activeFilter, setActiveFilter] = useState('new');
+  const [needRefresh, setNeedRefresh] = useState(false);
   const nearestColors = {
     red: '#ff003b',
     green: '#0aff00',
@@ -37,5 +38,7 @@ export default () => {
     setSelectedCard,
     setUser,
     nearestColors,
+    needRefresh,
+    setNeedRefresh,
   };
 };
