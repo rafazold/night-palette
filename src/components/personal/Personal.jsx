@@ -4,6 +4,7 @@ import context from '../../context/context';
 import { Link } from 'react-router-dom';
 import CardPlaceholder from '../shared/CardPlaceholder';
 import { checkHasOwnPalettes } from '../../api/api';
+import Star from '../../assets/images/icons/star.svg';
 import Button from '../shared/Button';
 
 const Personal = () => {
@@ -28,9 +29,10 @@ const Personal = () => {
             setActiveFilter('liked');
           }}
           secondary={activeFilter !== 'liked'}
-          className="mx-4"
+          className="flex mx-4 items-center"
         >
-          liked
+          <Star className="w-3 h-3 mr-1" />
+          <span>Liked</span>
         </Button>
         <Button
           onClick={() => {
@@ -38,7 +40,7 @@ const Personal = () => {
           }}
           secondary={activeFilter !== 'created'}
         >
-          created
+          Created
         </Button>
       </div>
       {(!user || !hasPalettes) && (
