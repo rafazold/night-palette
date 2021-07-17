@@ -48,6 +48,7 @@ module.exports = {
       meta: {
         viewport: 'width=device-width, initial-scale=1, shrink-to-fit=no',
         description: 'Dark Mode Color Palettes for Designers and Artists',
+        'theme-color': '#000000',
       },
       title: 'Night Palette',
       favicon: './src/assets/favicon.ico',
