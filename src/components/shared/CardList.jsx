@@ -37,7 +37,7 @@ const CardList = ({ list = [], type = 'D' }) => {
               .filter(Boolean)
               .join(' ')}
           >
-            {row.map(({ id, colors, likes, createdAt }) => {
+            {row.map(({ id, colors, likes, createdAt, userId }) => {
               return (
                 <Card
                   onClick={(e) => {
@@ -49,6 +49,7 @@ const CardList = ({ list = [], type = 'D' }) => {
                   id={id}
                   likes={likes}
                   creationTime={createdAt}
+                  userId={userId}
                   expanded={selectedCard['key'] === id}
                   shrink={
                     selectedCard['key'] !== id &&

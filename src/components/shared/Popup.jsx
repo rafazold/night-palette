@@ -5,6 +5,7 @@ const Popup = ({
   open,
   children,
   className,
+  buttonClassName,
   buttonIcon,
   handleOpen,
   ...props
@@ -19,8 +20,11 @@ const Popup = ({
   return (
     <div className="relative flex">
       <button
+        className={buttonClassName}
         data-button="true"
-        onClick={() => {
+        onClick={(e) => {
+          e.stopPropagation();
+          e.preventDefault();
           handleOpen(!open);
         }}
       >

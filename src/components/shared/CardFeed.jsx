@@ -19,7 +19,9 @@ const CardFeed = ({
 }) => {
   const [rows, setRows] = useState([]);
   const [palettes, setPalettes] = useState(null);
-  const { activeFilter, user } = useContext(context);
+  const { activeFilter, user, needRefresh, setNeedRefresh } = useContext(
+    context
+  );
 
   useEffect(() => {
     let unsubscribe;
@@ -56,7 +58,8 @@ const CardFeed = ({
         unsubscribe = getPalettesByCreationTime(setPalettes);
         return () => unsubscribe();
     }
-  }, [activeFilter, searchParam]);
+    setNeedRefresh(false);
+  }, [activeFilter, searchParam, needRefresh]);
 
   useEffect(() => {
     setRows(groupArray(palettes, 5));
