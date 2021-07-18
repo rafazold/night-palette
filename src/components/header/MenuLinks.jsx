@@ -69,7 +69,7 @@ const MenuLinks = ({ className }) => {
       <li>
         <button
           onClick={() => {
-            setActiveFilter('user');
+            setActiveFilter('created');
             location.pathname !== '/personal' && history.push('/personal');
           }}
           className={[
@@ -77,7 +77,8 @@ const MenuLinks = ({ className }) => {
             'h-10',
             'focus:outline-none',
             'flex items-center',
-            activeFilter === 'user' && 'text-button-blue',
+            (activeFilter === 'created' || activeFilter === 'liked') &&
+              'text-button-blue',
           ]
             .filter(Boolean)
             .join(' ')}
