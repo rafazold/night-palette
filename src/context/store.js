@@ -6,6 +6,7 @@ export default () => {
   const [user, setUser] = useState(null);
   const [activeFilter, setActiveFilter] = useState('new');
   const [needRefresh, setNeedRefresh] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(false);
   const nearestColors = {
     red: '#ff003b',
     green: '#0aff00',
@@ -40,5 +41,7 @@ export default () => {
     nearestColors,
     needRefresh,
     setNeedRefresh,
+    isAdmin,
+    setIsAdmin,
   };
 };

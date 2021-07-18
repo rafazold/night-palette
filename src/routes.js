@@ -4,5 +4,6 @@ import * as SignIn from './components/signIn/route.jsx';
 import * as SingleCard from './components/singleCard/route.jsx';
 import * as Personal from './components/personal/route.jsx';
 import * as Search from './components/search/route.jsx';
+import * as Admin from './components/admin/route.jsx';
 
-export default [Home, Create, SignIn, SingleCard, Personal, Search];
+export default [Home, Create, SignIn, SingleCard, Personal, Search, Admin];
