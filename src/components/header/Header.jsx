@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { NavLink, useLocation } from 'react-router-dom';
+import { NavLink, useLocation, useHistory } from 'react-router-dom';
 import context from '../../context/context';
 import { firebase } from '../../api/firebase';
 import Moon from '../../assets/images/icons/moon-icon.svg';
@@ -11,7 +11,8 @@ import ColorsBar from './ColorsBar';
 import UserIcon from '../../assets/images/icons/user-icon-gray.svg';
 
 const Header = () => {
-  const { setUser, user } = useContext(context);
+  const { setUser, user, setActiveFilter } = useContext(context);
+  const history = useHistory();
   const signOut = () => {
     firebase
       .auth()
@@ -22,17 +23,21 @@ const Header = () => {
   };
   const [openSearch, setOpenSearch] = useState(false);
   let location = useLocation();
+  const sendHome = () => {
+    setActiveFilter('new');
+    history.push('/', { button: 'home' });
+  };
 
   return (
     <header className="comp-header flex flex-col bg-card-gray text-white fixed top-0 left-0 z-50 backdrop-filter backdrop-blur-lg bg-opacity-50 w-full">
       <div className="w-full flex items-center py-4 h-16 container mx-auto">
         <div className="w-full px-4 flex justify-between items-center">
-          <NavLink to="/" exact className="lg:hidden">
+          <button onClick={sendHome} className="lg:hidden">
             <div className="flex text-3xl font-black items-center">
               <Moon className="lg:hidden h-6 text-white mr-2" />
               NP
             </div>
-          </NavLink>
+          </button>
           <MenuLinks className="hidden lg:flex" />
           <div className="flex items-center gap-2">
             <button

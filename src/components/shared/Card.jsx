@@ -45,13 +45,13 @@ const Card = ({
       : removeLike(paletteId, user.uid).catch((e) => {
           console.log(e);
         });
-    setNeedRefresh(true);
+    location.pathname === '/personal' && setNeedRefresh(true);
   };
   const handleDelete = (e, paletteId) => {
     e.stopPropagation();
     e.preventDefault();
     deletePalette(paletteId).catch();
-    location.pathname === 'personal' && setNeedRefresh(true);
+    location.pathname === '/personal' && setNeedRefresh(true);
   };
   //TODO: remove when change to observer
   const location = useLocation();
