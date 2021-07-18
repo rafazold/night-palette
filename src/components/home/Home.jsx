@@ -6,7 +6,6 @@ const Home = () => {
   const { setActiveFilter } = useContext(context);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
-    setActiveFilter('new');
     setLoading(false);
   }, []);
   return (
