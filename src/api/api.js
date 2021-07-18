@@ -7,6 +7,7 @@ const nearestColor = require('nearest-color').from(nearestColors);
 
 const db = app.firestore();
 const palettes = db.collection('palettes');
+const roles = db.collection('roles');
 
 export const getPalettesByCreationTime = (callBack) => {
   return palettes.orderBy('createdAt', 'desc').onSnapshot((snap) => {
@@ -138,4 +139,11 @@ export const removeLike = async (paletteId, userId) => {
     },
     { merge: true }
   );
+};
+
+export const checkIsAdmin = async (id) => {
+  return await roles
+    .doc(id)
+    .get()
+    .then((snap) => snap.data());
 };

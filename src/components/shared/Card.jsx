@@ -25,7 +25,7 @@ const Card = ({
   userId,
   ...props
 }) => {
-  const { user, setNeedRefresh } = useContext(context);
+  const { user, setNeedRefresh, isAdmin } = useContext(context);
   const isLiked = user ? likes.hasOwnProperty(user.uid) : false;
   const [sharing, setSharing] = useState(false);
   const [openDelete, setOpenDelete] = useState(false);
@@ -68,7 +68,7 @@ const Card = ({
         .join(' ')}
       {...props}
     >
-      {user && userId === user.uid && (
+      {user && (userId === user.uid || isAdmin) && (
         <Popup
           buttonIcon={<DeleteIcon className="w-7 h-7" />}
           buttonClassName="absolute top-0 right-0 z-10"
