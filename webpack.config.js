@@ -87,6 +87,10 @@ module.exports = {
           name: 'twitter:image',
           content: '/assets/images/night-share.png',
         },
+        pinterest: {
+          name: 'p:domain_verify',
+          content: '7602c8d45d3528f005b2b9ef249968e9',
+        },
       },
       title: 'Night Palette',
       favicon: './src/assets/favicon.ico',
