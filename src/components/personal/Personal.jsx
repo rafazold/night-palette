@@ -21,7 +21,7 @@ const Personal = () => {
     hasPalettes && setActiveFilter('created');
   }, [hasPalettes]);
   return (
-    <div className="comp-personal bg-black text-white pt-12">
+    <div className="comp-personal bg-black text-white">
       <div className="flex my-8">
         <span className="text-3xl">My Palettes:</span>
         <Button
