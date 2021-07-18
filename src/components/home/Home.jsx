@@ -1,9 +1,7 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import CardFeed from '../shared/CardFeed.jsx';
-import context from '../../context/context';
 
 const Home = () => {
-  const { setActiveFilter } = useContext(context);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     setLoading(false);

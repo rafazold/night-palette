@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { NavLink, useHistory, useLocation } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 import Logo from '../../assets/images/icons/logo-night-palette.svg';
 import Star from '../../assets/images/icons/star.svg';
 import context from '../../context/context';
@@ -8,6 +8,10 @@ const MenuLinks = ({ className }) => {
   const { activeFilter, setActiveFilter } = useContext(context);
   const history = useHistory();
   const location = useLocation();
+  const sendHome = () => {
+    setActiveFilter('new');
+    history.push('/', { button: 'home' });
+  };
 
   return (
     <ul
@@ -19,14 +23,12 @@ const MenuLinks = ({ className }) => {
         .join(' ')}
     >
       <li className="hidden lg:block">
-        <NavLink
-          to="/"
-          exact
-          activeClassName="text-white"
+        <button
+          onClick={sendHome}
           className="flex flex-col justify-center h-10"
         >
           <Logo className="h-6 text-white hover:text-button-blue" />
-        </NavLink>
+        </button>
       </li>
       <li>
         <button
