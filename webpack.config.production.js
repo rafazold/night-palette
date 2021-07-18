@@ -74,6 +74,8 @@ module.exports = merge(config, {
       'PROJECT_ID',
       'STORAGE_BUCKET',
       'MESSAGING_SENDER_ID',
+      'MEASUREMENT_ID',
+      'APP_ID',
     ]),
 
     new MiniCssExtractPlugin({
