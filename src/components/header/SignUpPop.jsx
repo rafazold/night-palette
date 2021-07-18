@@ -9,7 +9,7 @@ const SignUpPop = ({ user, signOut, children }) => {
       buttonIcon={<User className="w-8 h-8" data-button="true" />}
       open={openSignUp}
       handleOpen={setOpenSignUp}
-      className="top-16 right-0 w-96"
+      className="top-16 right-0 w-80"
     >
       <div
         className={[
