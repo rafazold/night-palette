@@ -1,7 +1,6 @@
 import app from 'firebase/app';
 import 'firebase/database';
 import 'firebase/firestore';
-import firebase from 'firebase';
 import nearestColors from '../assets/nearestColorsGuide.json';
 const nearestColor = require('nearest-color').from(nearestColors);
 
@@ -84,7 +83,7 @@ export const getPalettesBySearch = async (hex) => {
 };
 
 export const setPalette = async ({ userId, id, colors, type }) => {
-  const creationTime = firebase.firestore.FieldValue.serverTimestamp();
+  const creationTime = app.firestore.FieldValue.serverTimestamp();
   return await palettes
     .doc(id)
     .set({
@@ -135,7 +134,7 @@ export const addLike = async (paletteId, userId) => {
 export const removeLike = async (paletteId, userId) => {
   return await palettes.doc(paletteId).set(
     {
-      likes: { [userId]: firebase.firestore.FieldValue.delete() },
+      likes: { [userId]: app.firestore.FieldValue.delete() },
     },
     { merge: true }
   );
