@@ -5,7 +5,10 @@ import nearestColors from '../assets/nearestColorsGuide.json';
 const nearestColor = require('nearest-color').from(nearestColors);
 
 const db = app.firestore();
-const palettes = db.collection('palettes');
+const palettes =
+  process.env.NODE_ENV === 'production'
+    ? db.collection('palettes')
+    : db.collection('dev-palettes');
 const roles = db.collection('roles');
 
 export const getPalettesByCreationTime = (callBack) => {
