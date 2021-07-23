@@ -8,11 +8,12 @@ const Popup = ({
   buttonClassName,
   buttonIcon,
   handleOpen,
+  dataButton = 'data-button',
   ...props
 }) => {
   const popRef = useRef();
   useOnClickAway(popRef, (e) => {
-    !e.target.getAttribute('data-button') &&
+    e.target.getAttribute('data-button') !== dataButton &&
       e.target.getAttribute('class') !== 'user-Icon_svg__cls-2' &&
       handleOpen(false);
   });
@@ -21,7 +22,7 @@ const Popup = ({
     <div className="relative flex">
       <button
         className={buttonClassName}
-        data-button="true"
+        data-button={dataButton}
         onClick={(e) => {
           e.stopPropagation();
           e.preventDefault();

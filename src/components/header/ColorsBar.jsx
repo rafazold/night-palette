@@ -17,7 +17,7 @@ const ColorsBar = ({ handleShow, show, className, ...props }) => {
   });
   const barRef = useRef();
   useOnClickAway(barRef, (e) => {
-    !e.target.getAttribute('data-button') && handleShow(false);
+    e.target.getAttribute('data-button') !== 'search' && handleShow(false);
   });
   const handleSearch = () => {
     handleShow(false);
