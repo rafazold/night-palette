@@ -9,6 +9,10 @@ import SignUpPop from './SignUpPop';
 import MenuLinks from './MenuLinks';
 import ColorsBar from './ColorsBar';
 import UserIcon from '../../assets/images/icons/user-icon-gray.svg';
+import MenuIcon from '../../assets/images/icons/menu-icon.svg';
+import Popup from '../shared/Popup';
+import Button from '../shared/Button';
+import Logo from '../../assets/images/icons/logo-night-palette.svg';
 
 const Header = () => {
   const { setUser, user, setActiveFilter } = useContext(context);
@@ -22,7 +26,8 @@ const Header = () => {
       });
   };
   const [openSearch, setOpenSearch] = useState(false);
-  let location = useLocation();
+  const [openMenu, setOpenMenu] = useState(false);
+  const location = useLocation();
   const sendHome = () => {
     setActiveFilter('new');
     history.push('/', { button: 'home' });
@@ -32,47 +37,35 @@ const Header = () => {
     <header className="comp-header flex flex-col bg-card-gray text-white fixed top-0 left-0 z-50 backdrop-filter backdrop-blur-lg bg-opacity-50 w-full">
       <div className="w-full flex items-center py-4 h-16 container mx-auto">
         <div className="w-full px-4 flex justify-between items-center">
-          <button onClick={sendHome} className="lg:hidden">
-            <div className="flex text-3xl font-black items-center">
-              <Moon className="lg:hidden h-6 text-white mr-2" />
+          <button
+            onClick={sendHome}
+            className="focus:outline-none rounded-md px-1"
+          >
+            <div className="lg:hidden flex text-3xl font-black items-center">
+              <Moon className="h-6 text-white mr-2" />
               NP
             </div>
+            <Logo className="hidden lg:block h-6 text-white hover:text-button-blue" />
           </button>
           <MenuLinks className="hidden lg:flex" />
           <div className="flex items-center gap-2">
-            <button
-              data-button="true"
+            <Button
+              active={openSearch || location.pathname.split('/')[1] === 's'}
+              data-button="search"
               onClick={() => {
                 setOpenSearch((open) => {
                   return !open;
                 });
               }}
-              className={[
-                'py-2',
-                'lg:py-1',
-                'px-2',
-                'my-auto',
-                'rounded-lg',
-                'bg-gradient-to-r',
-                'from-button-green',
-                'to-button-blue',
-                'text-black',
-                'text-xs',
-                'focus:outline-none',
-                'lg:text-sm',
-                location.pathname.split('/')[1] === 's' && 'shadow-turquoise',
-              ]
-                .filter(Boolean)
-                .join(' ')}
             >
-              <span data-button="true" className="hidden lg:block">
+              <span data-button="search" className="hidden lg:block">
                 Search
               </span>
               <SearchIcon
-                data-button="true"
+                data-button="search"
                 className="h-4 w-4 text-black lg:hidden"
               />
-            </button>
+            </Button>
             {!user ? (
               <>
                 <button
@@ -90,8 +83,8 @@ const Header = () => {
                 </button>
                 <NavLink
                   to="/signin"
-                  activeClassName="text-white "
-                  data-button="true"
+                  activeClassName="text-white rounded-full shadow-turquoise"
+                  data-button="login"
                 >
                   <UserIcon className="w-8 h-8" />
                 </NavLink>
@@ -112,11 +105,35 @@ const Header = () => {
                   </span>
                   <span className="hidden lg:inline ml-2">Add Palette</span>
                 </NavLink>
-                <SignUpPop signOut={signOut} user={user} data-button="true">
-                  <MenuLinks className="flex lg:hidden" />
-                </SignUpPop>
+                <SignUpPop signOut={signOut} user={user} data-button="login" />
               </>
             )}
+            <Popup
+              buttonIcon={
+                <MenuIcon
+                  className="h-4 w-4 pointer-events-none"
+                  data-button="menu"
+                />
+              }
+              open={openMenu}
+              handleOpen={setOpenMenu}
+              buttonClassName={[
+                'lg:hidden',
+                'p-2',
+                'rounded-md',
+                'bg-gradient-to-r',
+                'from-button-green',
+                'to-button-blue',
+                'focus:outline-none',
+                openMenu && 'shadow-turquoise',
+              ]
+                .filter(Boolean)
+                .join(' ')}
+              className="top-16 right-0 w-56 bg-card-gray backdrop-filter backdrop-blur-lg bg-opacity-90 p-4 rounded-md"
+              dataButton="menu"
+            >
+              <MenuLinks className="flex lg:hidden" />
+            </Popup>
           </div>
         </div>
       </div>

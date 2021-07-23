@@ -1,6 +1,12 @@
 import React from 'react';
 
-const Button = ({ children, className, secondary = false, ...props }) => (
+const Button = ({
+  children,
+  active,
+  secondary = false,
+  className,
+  ...props
+}) => (
   <button
     {...props}
     className={[
@@ -16,6 +22,7 @@ const Button = ({ children, className, secondary = false, ...props }) => (
       'text-xs',
       'focus:outline-none',
       'lg:text-sm',
+      active && 'shadow-turquoise',
       className,
     ]
       .filter(Boolean)
