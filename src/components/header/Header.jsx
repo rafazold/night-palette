@@ -37,17 +37,19 @@ const Header = () => {
     <header className="comp-header flex flex-col bg-card-gray text-white fixed top-0 left-0 z-50 backdrop-filter backdrop-blur-lg bg-opacity-50 w-full">
       <div className="w-full flex items-center py-4 h-16 container mx-auto">
         <div className="w-full px-4 flex justify-between items-center">
-          <button
-            onClick={sendHome}
-            className="focus:outline-none rounded-md px-1"
-          >
-            <div className="lg:hidden flex text-3xl font-black items-center">
-              <Moon className="h-6 text-white mr-2" />
-              NP
-            </div>
-            <Logo className="hidden lg:block h-6 text-white hover:text-button-blue" />
-          </button>
-          <MenuLinks className="hidden lg:flex" />
+          <div className="lg:flex">
+            <button
+              onClick={sendHome}
+              className="focus:outline-none rounded-md px-1 lg:mr-10"
+            >
+              <div className="lg:hidden flex text-3xl font-black items-center">
+                <Moon className="h-6 text-white mr-2" />
+                NP
+              </div>
+              <Logo className="hidden lg:block h-6 text-white hover:text-button-blue" />
+            </button>
+            <MenuLinks className="hidden lg:flex" />
+          </div>
           <div className="flex items-center gap-2">
             <Button
               active={openSearch || location.pathname.split('/')[1] === 's'}

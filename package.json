@@ -29,7 +29,8 @@
     "build": "export $(cat .env | xargs) && webpack --mode production --config webpack.config.production.js",
     "postbuild": "cp src/_redirects dist/_redirects",
     "build-stg": "yarn prebuild && export $(cat .env | xargs) && webpack --mode development --config webpack.config.development.js",
-    "deploy-stg": "netlify deploy --prod"
+    "deploy-stg": "netlify deploy --prod",
+    "deploy": "firebase deploy --only hosting"
   },
   "devDependencies": {
     "@babel/core": "^7.13.14",

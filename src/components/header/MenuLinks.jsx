@@ -22,14 +22,6 @@ const MenuLinks = ({ className }) => {
         .filter(Boolean)
         .join(' ')}
     >
-      {/*<li className="hidden lg:block">*/}
-      {/*  <button*/}
-      {/*    onClick={sendHome}*/}
-      {/*    className="flex flex-col justify-center h-10"*/}
-      {/*  >*/}
-      {/*    <Logo className="h-6 text-white hover:text-button-blue" />*/}
-      {/*  </button>*/}
-      {/*</li>*/}
       <li>
         <button
           onClick={() => {
