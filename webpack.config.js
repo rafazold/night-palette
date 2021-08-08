@@ -53,7 +53,7 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.jsx', '.json'],
     alias: {
-      '@': resolve(__dirname, 'src'),
+      '@src': resolve(__dirname, 'src'),
     },
   },
   plugins: [

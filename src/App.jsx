@@ -13,7 +13,7 @@ const App = () => {
   return (
     <Context.Provider value={store}>
       <Router>
-        <div className="pt-16 min-h-screen bg-black overflow-auto container px-4 mx-auto">
+        <div className="pt-16 pb-8 min-h-screen bg-black overflow-auto container px-4 mx-auto">
           <ToastContainer />
           <Header />
           <Suspense

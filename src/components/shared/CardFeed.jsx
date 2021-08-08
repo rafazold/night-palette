@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { groupArray } from '../../utils.js';
+import { groupArray } from '../../helpers/helpers.js';
 import CardList from './CardList.jsx';
 import context from '../../context/context.js';
 import {
