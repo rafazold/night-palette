@@ -56,7 +56,7 @@ const Personal = () => {
             <h1 className="text-6xl pt-9 text-center">No Palettes Yet...</h1>
             <div className="w-full flex justify-center mt-6">
               <Link
-                className="py-3 px-8 m-auto rounded-sm bg-gradient-to-r from-button-green to-button-blue text-black text-xs focus:outline-none"
+                className="py-3 px-8 m-auto rounded-lg bg-gradient-to-r from-button-green to-button-blue text-black text-xs focus:outline-none"
                 to="/create"
               >
                 + Add Palette

@@ -5,7 +5,7 @@ import Star from '../../assets/images/icons/star.svg';
 const CardPlaceholder = ({ palette, id, likes, className, ...props }) => (
   <div
     className={[
-      'mx-4 px-4 pt-3 bg-light-gray opacity-5 shadow-main rounded-md mb-20 cursor-pointer hide-tap',
+      'mx-4 px-4 pt-3 bg-light-gray opacity-5 shadow-main rounded-md mb-0 cursor-pointer hide-tap',
       'w-full lg:w-64',
       className,
     ]
@@ -22,7 +22,7 @@ const CardPlaceholder = ({ palette, id, likes, className, ...props }) => (
         { color: '#262626', hex: '#262626' },
       ]}
       cardId="placeholder"
-      className="h-72"
+      className="h-72 animate-pulse"
       colorOnClick={(e) => {
         e.preventDefault();
         e.stopPropagation();

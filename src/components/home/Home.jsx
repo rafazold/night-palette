@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import CardFeed from '../shared/CardFeed.jsx';
+import CardPlaceholder from '../shared/CardPlaceholder';
 
 const Home = () => {
   const [loading, setLoading] = useState(true);
@@ -17,7 +18,17 @@ const Home = () => {
           mode design
         </h2>
       </div>
-      {!loading && <CardFeed />}
+      {loading ? (
+        <div className="flex justify-between">
+          <CardPlaceholder />
+          <CardPlaceholder className="hidden lg:block" />
+          <CardPlaceholder className="hidden lg:block" />
+          <CardPlaceholder className="hidden lg:block" />
+          <CardPlaceholder className="hidden lg:block" />
+        </div>
+      ) : (
+        <CardFeed />
+      )}
     </div>
   );
 };

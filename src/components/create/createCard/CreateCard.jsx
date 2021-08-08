@@ -3,7 +3,7 @@ import Palette from '../../shared/Palette.jsx';
 import ColorPicker from './ColorPicker.jsx';
 import useOnClickAway from '../../../hooks/clickAway.jsx';
 import context from '../../../context/context.js';
-import { makePaletteId } from '../../../utils.js';
+import { makePaletteId } from '../../../helpers/helpers.js';
 import { useHistory, Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { checkAvailable, setPalette } from '../../../api/api';
