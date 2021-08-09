@@ -76,7 +76,7 @@ const CardFeed = ({
       {rows.length ? (
         <CardList list={rows} type="D" />
       ) : (
-        <div className="flex justify-between">
+        <div className="flex justify-between w-full">
           <CardPlaceholder />
           <CardPlaceholder className="hidden lg:block" />
           <CardPlaceholder className="hidden lg:block" />
