@@ -18,17 +18,7 @@ const Home = () => {
           mode design
         </h2>
       </div>
-      {loading ? (
-        <div className="flex justify-between">
-          <CardPlaceholder />
-          <CardPlaceholder className="hidden lg:block" />
-          <CardPlaceholder className="hidden lg:block" />
-          <CardPlaceholder className="hidden lg:block" />
-          <CardPlaceholder className="hidden lg:block" />
-        </div>
-      ) : (
-        <CardFeed />
-      )}
+      <CardFeed />
     </div>
   );
 };

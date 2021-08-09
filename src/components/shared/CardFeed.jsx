@@ -10,6 +10,7 @@ import {
   getLikedPalettes,
 } from '../../api/api';
 import { sortPalettesByKey } from '../../helpers/helpers';
+import CardPlaceholder from './CardPlaceholder';
 
 const CardFeed = ({
   searchParam,
@@ -72,7 +73,17 @@ const CardFeed = ({
         .join(' ')}
       {...props}
     >
-      {rows && <CardList list={rows} type="D" />}
+      {rows.length ? (
+        <CardList list={rows} type="D" />
+      ) : (
+        <div className="flex justify-between">
+          <CardPlaceholder />
+          <CardPlaceholder className="hidden lg:block" />
+          <CardPlaceholder className="hidden lg:block" />
+          <CardPlaceholder className="hidden lg:block" />
+          <CardPlaceholder className="hidden lg:block" />
+        </div>
+      )}
     </div>
   );
 };

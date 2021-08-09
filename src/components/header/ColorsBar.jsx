@@ -32,6 +32,7 @@ const ColorsBar = ({ handleShow, show, className, ...props }) => {
         'max-h-96',
         searchHex && show && 'h-80 lg:h-96',
         'flex',
+        'lg:flex-nowrap',
         'lg:justify-between',
         'container mx-auto px-4',
         'flex-col lg:flex-row',
