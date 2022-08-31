@@ -1,11 +1,8 @@
 const plugin = require('tailwindcss/plugin');
 
 module.exports = {
-  purge: {
-    content: ['./src/**/**/*.jsx', './src/**/**/*.js', './src/index.js'],
-    whitelist: ['font-primary'],
-  },
-  darkMode: false, // or 'media' or 'class'
+  content: ['./src/**/**/*.jsx', './src/**/**/*.js', './src/index.js'],
+  whitelist: ['font-primary'],
   theme: {
     extend: {
       colors: {
