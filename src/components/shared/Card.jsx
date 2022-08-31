@@ -23,6 +23,7 @@ const Card = ({
   creationTime,
   className,
   userId,
+  isNotWide = false,
   ...props
 }) => {
   const { user, setNeedRefresh, isAdmin } = useContext(context);
@@ -174,9 +175,10 @@ const Card = ({
             </button>
           </div>
         </div>
+        {(!isNotWide || !sharing) && (
         <div className="text-sm text-gray-600">
           {creationTime && moment(creationTime.toDate()).fromNow()}
-        </div>
+        </div>)}
       </div>
     </div>
   );

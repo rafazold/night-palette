@@ -51,6 +51,7 @@ const CardList = ({ list = [], type = 'D' }) => {
                   creationTime={createdAt}
                   userId={userId}
                   expanded={selectedCard['key'] === id}
+                  isNotWide
                   shrink={
                     selectedCard['key'] !== id &&
                     selectedCard['row'] === index &&
