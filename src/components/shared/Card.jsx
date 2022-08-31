@@ -2,16 +2,16 @@ import React, { useContext, useRef, useState } from 'react';
 import Palette from './Palette.jsx';
 import Star from '../../assets/images/icons/star.svg';
 import ShareIcon from '../../assets/images/icons/share-Icon.svg';
+import CopyIcon from '../../assets/images/icons/copy-icon.svg'
 import DeleteIcon from '../../assets/images/icons/delete-Icon.svg';
 import context from '../../context/context';
 import { addLike, removeLike, deletePalette } from '../../api/api';
 import { toast } from 'react-toastify';
 import moment from 'moment';
-import { EmailIcon, WhatsappShareButton, WhatsappIcon } from 'react-share';
+import { WhatsappShareButton, WhatsappIcon } from 'react-share';
 import useOnClickAway from '../../hooks/clickAway';
 import Popup from './Popup';
 import Button from './Button';
-//TODO: remove when changed to observer
 import { useLocation } from 'react-router-dom';
 
 const Card = ({
@@ -160,15 +160,17 @@ const Card = ({
               className={[!sharing && 'hidden'].filter(Boolean).join(' ')}
               onClick={(e) => {
                 e.stopPropagation();
-                const subject = 'subject=Night Palette share';
-                const body = "body=You've been invited to see a color palette";
-                const url = `https://${window.location.host}/card/${
+                const url = `${window.location.origin}/card/${
                   id ? id.replaceAll('#', '-') : ''
                 }`;
-                location.href = `mailto:?${subject}&${body} - ${url}`;
+                navigator.clipboard.writeText(url).then((r) =>
+                  toast.dark(`URL copied to clipboard`, {
+                    position: toast.POSITION.BOTTOM_RIGHT
+                  })
+                );
               }}
             >
-              <EmailIcon size="28" round />
+              <CopyIcon className="h-4"/>
             </button>
           </div>
         </div>
